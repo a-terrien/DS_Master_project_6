@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<!-- saved from url=(0081)https://keras.io/api/applications/#usage-examples-for-image-classification-models -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Keras documentation">
+  <meta name="author" content="Keras Team">
+  <link rel="shortcut icon" href="https://keras.io/img/favicon.ico">
+
+  <!-- Social -->
+  <meta property="og:title" content="Keras documentation: Keras Applications">
+  <meta property="og:image" content="https://keras.io/img/logo-k-keras-wb.png">
+  <meta name="twitter:title" content="Keras documentation: Keras Applications">
+  <meta name="twitter:image" content="https://keras.io/img/k-keras-social.png">
+  <meta name="twitter:card" content="summary">
+
+  <title>Keras Applications</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="./Keras_Applications_files/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="./Keras_Applications_files/css2" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="./Keras_Applications_files/docs.css" rel="stylesheet">
+  <link href="./Keras_Applications_files/monokai.css" rel="stylesheet">
+
+  <!-- Google Tag Manager -->
+  <script async="true" type="text/javascript" src="./Keras_Applications_files/js"></script><script async="" src="./Keras_Applications_files/analytics.js"></script><script async="" src="./Keras_Applications_files/gtm.js"></script><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5DNGF4N');
+  </script>
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-175165319-128', 'auto');
+  ga('send', 'pageview');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <script async="" defer="" src="./Keras_Applications_files/buttons.js"></script>
+
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DNGF4N"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="k-page">
+  
+    <div class="k-nav" id="nav-menu">
+      <a href="https://keras.io/"><img src="./Keras_Applications_files/logo-small.png" class="logo-small"></a>
+
+      <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+
+        
+          <a class="nav-link" href="https://keras.io/about/" role="tab" aria-selected="">About Keras</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/getting_started/" role="tab" aria-selected="">Getting started</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/examples/" role="tab" aria-selected="">Code examples</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/guides/" role="tab" aria-selected="">Developer guides</a>
+          
+        
+          <a class="nav-link active" href="https://keras.io/api/" role="tab" aria-selected="">API reference</a>
+          
+            
+              <a class="nav-sublink" href="https://keras.io/api/models/">Models API</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/layers/">Layers API</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/callbacks/">Callbacks API</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/optimizers/">Optimizers</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/metrics/">Metrics</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/losses/">Losses</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/data_loading/">Data loading</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/datasets/">Built-in small datasets</a>
+                
+            
+              <a class="nav-sublink active" href="https://keras.io/api/applications/">Keras Applications</a>
+                
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/xception/">Xception</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/efficientnet/">EfficientNet B0 to B7</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/efficientnet_v2/">EfficientNetV2 B0 to B3 and S, M, L</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/convnext/">ConvNeXt Tiny, Small, Base, Large, XLarge</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/vgg/">VGG16 and VGG19</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/resnet/">ResNet and ResNetV2</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/mobilenet/">MobileNet, MobileNetV2, and MobileNetV3</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/densenet/">DenseNet</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/nasnet/">NasNetLarge and NasNetMobile</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/inceptionv3/">InceptionV3</a>
+                  
+                    <a class="nav-sublink2" href="https://keras.io/api/applications/inceptionresnetv2/">InceptionResNetV2</a>
+                  
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/mixed_precision/">Mixed precision</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/utils/">Utilities</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/keras_tuner/">KerasTuner</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/keras_cv/">KerasCV</a>
+                
+            
+              <a class="nav-sublink" href="https://keras.io/api/keras_nlp/">KerasNLP</a>
+                
+            
+          
+        
+          <a class="nav-link" href="https://keras.io/keras_core/" role="tab" aria-selected="">Keras Core: Keras for TensorFlow, JAX, and PyTorch</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/keras_tuner/" role="tab" aria-selected="">KerasTuner: Hyperparameter Tuning</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/keras_cv/" role="tab" aria-selected="">KerasCV: Computer Vision Workflows</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/keras_nlp/" role="tab" aria-selected="">KerasNLP: Natural Language Workflows</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/why_keras/" role="tab" aria-selected="">Why choose Keras?</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/governance/" role="tab" aria-selected="">Community &amp; governance</a>
+          
+        
+          <a class="nav-link" href="https://keras.io/contributing/" role="tab" aria-selected="">Contributing to Keras</a>
+          
+        
+
+      </div>
+
+    </div>
+
+    <div class="k-main">
+      
+      <div class="k-main-top">
+        <script>
+          function displayDropdownMenu() {
+            e = document.getElementById("nav-menu");
+            if (e.style.display == "block") {
+              e.style.display = "none";
+            }
+            else {
+              e.style.display = "block";
+              document.getElementById("dropdown-nav").style.display = "block";
+            }
+          }
+
+          function resetMobileUI() {
+            if (window.innerWidth <= 840) {
+              document.getElementById("nav-menu").style.display = "none";
+              document.getElementById("dropdown-nav").style.display = "block";
+            }
+            else {
+              document.getElementById("nav-menu").style.display = "block";
+              document.getElementById("dropdown-nav").style.display = "none";
+            }
+          }
+
+          window.onresize = resetMobileUI;
+        </script>
+        <div id="dropdown-nav" onclick="displayDropdownMenu();">
+          <svg viewBox="-20 -20 120 120" width="60" height="60">
+            <rect width="100" height="20"></rect>
+            <rect y="30" width="100" height="20"></rect>
+            <rect y="60" width="100" height="20"></rect>
+          </svg>
+        </div>
+
+        <form class="bd-search d-flex align-items-center k-search-form" id="search-form">
+          <input type="search" class="k-search-input" id="search-input" placeholder="Search Keras documentation..." aria-label="Search Keras documentation..." autocomplete="off">
+            <button class="k-search-btn">
+              <svg width="13" height="13" viewBox="0 0 13 13"><title>search</title><path d="m4.8495 7.8226c0.82666 0 1.5262-0.29146 2.0985-0.87438 0.57232-0.58292 0.86378-1.2877 0.87438-2.1144 0.010599-0.82666-0.28086-1.5262-0.87438-2.0985-0.59352-0.57232-1.293-0.86378-2.0985-0.87438-0.8055-0.010599-1.5103 0.28086-2.1144 0.87438-0.60414 0.59352-0.8956 1.293-0.87438 2.0985 0.021197 0.8055 0.31266 1.5103 0.87438 2.1144 0.56172 0.60414 1.2665 0.8956 2.1144 0.87438zm4.4695 0.2115 3.681 3.6819-1.259 1.284-3.6817-3.7 0.0019784-0.69479-0.090043-0.098846c-0.87973 0.76087-1.92 1.1413-3.1207 1.1413-1.3553 0-2.5025-0.46363-3.4417-1.3909s-1.4088-2.0686-1.4088-3.4239c0-1.3553 0.4696-2.4966 1.4088-3.4239 0.9392-0.92727 2.0864-1.3969 3.4417-1.4088 1.3553-0.011889 2.4906 0.45771 3.406 1.4088 0.9154 0.95107 1.379 2.0924 1.3909 3.4239 0 1.2126-0.38043 2.2588-1.1413 3.1385l0.098834 0.090049z"></path></svg>
+            </button>
+        </form>
+        <script>
+          var form = document.getElementById('search-form');
+          form.onsubmit = function(e) {
+            e.preventDefault();
+            var query = document.getElementById('search-input').value;
+            window.location.href = '/search.html?query=' + query;
+            return False
+          }
+        </script>
+
+      </div>
+      <div class="k-main-inner">
+        <div class="k-location-slug">
+            » 
+                <a href="https://keras.io/api">API reference</a> /
+               Keras Applications
+        </div>
+        <div class="k-content">
+          <h1 id="keras-applications">Keras Applications</h1>
+<p>Keras Applications are deep learning models that are made available alongside pre-trained weights.
+These models can be used for prediction, feature extraction, and fine-tuning.</p>
+<p>Weights are downloaded automatically when instantiating a model. They are stored at <code>~/.keras/models/</code>.</p>
+<p>Upon instantiation, the models will be built according to the image data format set in your Keras configuration file at <code>~/.keras/keras.json</code>.
+For instance, if you have set <code>image_data_format=channels_last</code>,
+then any model loaded from this repository will get built according to the TensorFlow data format convention, "Height-Width-Depth".</p>
+<h2 id="available-models">Available models</h2>
+<table>
+<thead>
+<tr>
+<th>Model</th>
+<th style="text-align: right;">Size (MB)</th>
+<th style="text-align: right;">Top-1 Accuracy</th>
+<th style="text-align: right;">Top-5 Accuracy</th>
+<th style="text-align: right;">Parameters</th>
+<th style="text-align: right;">Depth</th>
+<th style="text-align: right;">Time (ms) per inference step (CPU)</th>
+<th style="text-align: right;">Time (ms) per inference step (GPU)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://keras.io/api/applications/xception">Xception</a></td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">79.0%</td>
+<td style="text-align: right;">94.5%</td>
+<td style="text-align: right;">22.9M</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">109.4</td>
+<td style="text-align: right;">8.1</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/vgg/#vgg16-function">VGG16</a></td>
+<td style="text-align: right;">528</td>
+<td style="text-align: right;">71.3%</td>
+<td style="text-align: right;">90.1%</td>
+<td style="text-align: right;">138.4M</td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">69.5</td>
+<td style="text-align: right;">4.2</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/vgg/#vgg19-function">VGG19</a></td>
+<td style="text-align: right;">549</td>
+<td style="text-align: right;">71.3%</td>
+<td style="text-align: right;">90.0%</td>
+<td style="text-align: right;">143.7M</td>
+<td style="text-align: right;">19</td>
+<td style="text-align: right;">84.8</td>
+<td style="text-align: right;">4.4</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/resnet/#resnet50-function">ResNet50</a></td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">74.9%</td>
+<td style="text-align: right;">92.1%</td>
+<td style="text-align: right;">25.6M</td>
+<td style="text-align: right;">107</td>
+<td style="text-align: right;">58.2</td>
+<td style="text-align: right;">4.6</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/resnet/#resnet50v2-function">ResNet50V2</a></td>
+<td style="text-align: right;">98</td>
+<td style="text-align: right;">76.0%</td>
+<td style="text-align: right;">93.0%</td>
+<td style="text-align: right;">25.6M</td>
+<td style="text-align: right;">103</td>
+<td style="text-align: right;">45.6</td>
+<td style="text-align: right;">4.4</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/resnet/#resnet101-function">ResNet101</a></td>
+<td style="text-align: right;">171</td>
+<td style="text-align: right;">76.4%</td>
+<td style="text-align: right;">92.8%</td>
+<td style="text-align: right;">44.7M</td>
+<td style="text-align: right;">209</td>
+<td style="text-align: right;">89.6</td>
+<td style="text-align: right;">5.2</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/resnet/#resnet101v2-function">ResNet101V2</a></td>
+<td style="text-align: right;">171</td>
+<td style="text-align: right;">77.2%</td>
+<td style="text-align: right;">93.8%</td>
+<td style="text-align: right;">44.7M</td>
+<td style="text-align: right;">205</td>
+<td style="text-align: right;">72.7</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/resnet/#resnet152-function">ResNet152</a></td>
+<td style="text-align: right;">232</td>
+<td style="text-align: right;">76.6%</td>
+<td style="text-align: right;">93.1%</td>
+<td style="text-align: right;">60.4M</td>
+<td style="text-align: right;">311</td>
+<td style="text-align: right;">127.4</td>
+<td style="text-align: right;">6.5</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/resnet/#resnet152v2-function">ResNet152V2</a></td>
+<td style="text-align: right;">232</td>
+<td style="text-align: right;">78.0%</td>
+<td style="text-align: right;">94.2%</td>
+<td style="text-align: right;">60.4M</td>
+<td style="text-align: right;">307</td>
+<td style="text-align: right;">107.5</td>
+<td style="text-align: right;">6.6</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/inceptionv3">InceptionV3</a></td>
+<td style="text-align: right;">92</td>
+<td style="text-align: right;">77.9%</td>
+<td style="text-align: right;">93.7%</td>
+<td style="text-align: right;">23.9M</td>
+<td style="text-align: right;">189</td>
+<td style="text-align: right;">42.2</td>
+<td style="text-align: right;">6.9</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/inceptionresnetv2">InceptionResNetV2</a></td>
+<td style="text-align: right;">215</td>
+<td style="text-align: right;">80.3%</td>
+<td style="text-align: right;">95.3%</td>
+<td style="text-align: right;">55.9M</td>
+<td style="text-align: right;">449</td>
+<td style="text-align: right;">130.2</td>
+<td style="text-align: right;">10.0</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/mobilenet">MobileNet</a></td>
+<td style="text-align: right;">16</td>
+<td style="text-align: right;">70.4%</td>
+<td style="text-align: right;">89.5%</td>
+<td style="text-align: right;">4.3M</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">22.6</td>
+<td style="text-align: right;">3.4</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/mobilenet/#mobilenetv2-function">MobileNetV2</a></td>
+<td style="text-align: right;">14</td>
+<td style="text-align: right;">71.3%</td>
+<td style="text-align: right;">90.1%</td>
+<td style="text-align: right;">3.5M</td>
+<td style="text-align: right;">105</td>
+<td style="text-align: right;">25.9</td>
+<td style="text-align: right;">3.8</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/densenet/#densenet121-function">DenseNet121</a></td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">75.0%</td>
+<td style="text-align: right;">92.3%</td>
+<td style="text-align: right;">8.1M</td>
+<td style="text-align: right;">242</td>
+<td style="text-align: right;">77.1</td>
+<td style="text-align: right;">5.4</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/densenet/#densenet169-function">DenseNet169</a></td>
+<td style="text-align: right;">57</td>
+<td style="text-align: right;">76.2%</td>
+<td style="text-align: right;">93.2%</td>
+<td style="text-align: right;">14.3M</td>
+<td style="text-align: right;">338</td>
+<td style="text-align: right;">96.4</td>
+<td style="text-align: right;">6.3</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/densenet/#densenet201-function">DenseNet201</a></td>
+<td style="text-align: right;">80</td>
+<td style="text-align: right;">77.3%</td>
+<td style="text-align: right;">93.6%</td>
+<td style="text-align: right;">20.2M</td>
+<td style="text-align: right;">402</td>
+<td style="text-align: right;">127.2</td>
+<td style="text-align: right;">6.7</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/nasnet/#nasnetmobile-function">NASNetMobile</a></td>
+<td style="text-align: right;">23</td>
+<td style="text-align: right;">74.4%</td>
+<td style="text-align: right;">91.9%</td>
+<td style="text-align: right;">5.3M</td>
+<td style="text-align: right;">389</td>
+<td style="text-align: right;">27.0</td>
+<td style="text-align: right;">6.7</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/nasnet/#nasnetlarge-function">NASNetLarge</a></td>
+<td style="text-align: right;">343</td>
+<td style="text-align: right;">82.5%</td>
+<td style="text-align: right;">96.0%</td>
+<td style="text-align: right;">88.9M</td>
+<td style="text-align: right;">533</td>
+<td style="text-align: right;">344.5</td>
+<td style="text-align: right;">20.0</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb0-function">EfficientNetB0</a></td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">77.1%</td>
+<td style="text-align: right;">93.3%</td>
+<td style="text-align: right;">5.3M</td>
+<td style="text-align: right;">132</td>
+<td style="text-align: right;">46.0</td>
+<td style="text-align: right;">4.9</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb1-function">EfficientNetB1</a></td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">79.1%</td>
+<td style="text-align: right;">94.4%</td>
+<td style="text-align: right;">7.9M</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">60.2</td>
+<td style="text-align: right;">5.6</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb2-function">EfficientNetB2</a></td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">80.1%</td>
+<td style="text-align: right;">94.9%</td>
+<td style="text-align: right;">9.2M</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: right;">80.8</td>
+<td style="text-align: right;">6.5</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb3-function">EfficientNetB3</a></td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">81.6%</td>
+<td style="text-align: right;">95.7%</td>
+<td style="text-align: right;">12.3M</td>
+<td style="text-align: right;">210</td>
+<td style="text-align: right;">140.0</td>
+<td style="text-align: right;">8.8</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb4-function">EfficientNetB4</a></td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">82.9%</td>
+<td style="text-align: right;">96.4%</td>
+<td style="text-align: right;">19.5M</td>
+<td style="text-align: right;">258</td>
+<td style="text-align: right;">308.3</td>
+<td style="text-align: right;">15.1</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb5-function">EfficientNetB5</a></td>
+<td style="text-align: right;">118</td>
+<td style="text-align: right;">83.6%</td>
+<td style="text-align: right;">96.7%</td>
+<td style="text-align: right;">30.6M</td>
+<td style="text-align: right;">312</td>
+<td style="text-align: right;">579.2</td>
+<td style="text-align: right;">25.3</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb6-function">EfficientNetB6</a></td>
+<td style="text-align: right;">166</td>
+<td style="text-align: right;">84.0%</td>
+<td style="text-align: right;">96.8%</td>
+<td style="text-align: right;">43.3M</td>
+<td style="text-align: right;">360</td>
+<td style="text-align: right;">958.1</td>
+<td style="text-align: right;">40.4</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet/#efficientnetb7-function">EfficientNetB7</a></td>
+<td style="text-align: right;">256</td>
+<td style="text-align: right;">84.3%</td>
+<td style="text-align: right;">97.0%</td>
+<td style="text-align: right;">66.7M</td>
+<td style="text-align: right;">438</td>
+<td style="text-align: right;">1578.9</td>
+<td style="text-align: right;">61.6</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet_v2/#efficientnetv2b0-function">EfficientNetV2B0</a></td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">78.7%</td>
+<td style="text-align: right;">94.3%</td>
+<td style="text-align: right;">7.2M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet_v2/#efficientnetv2b1-function">EfficientNetV2B1</a></td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">79.8%</td>
+<td style="text-align: right;">95.0%</td>
+<td style="text-align: right;">8.2M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet_v2/#efficientnetv2b2-function">EfficientNetV2B2</a></td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">80.5%</td>
+<td style="text-align: right;">95.1%</td>
+<td style="text-align: right;">10.2M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet_v2/#efficientnetv2b3-function">EfficientNetV2B3</a></td>
+<td style="text-align: right;">59</td>
+<td style="text-align: right;">82.0%</td>
+<td style="text-align: right;">95.8%</td>
+<td style="text-align: right;">14.5M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet_v2/#efficientnetv2s-function">EfficientNetV2S</a></td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">83.9%</td>
+<td style="text-align: right;">96.7%</td>
+<td style="text-align: right;">21.6M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet_v2/#efficientnetv2m-function">EfficientNetV2M</a></td>
+<td style="text-align: right;">220</td>
+<td style="text-align: right;">85.3%</td>
+<td style="text-align: right;">97.4%</td>
+<td style="text-align: right;">54.4M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/efficientnet_v2/#efficientnetv2l-function">EfficientNetV2L</a></td>
+<td style="text-align: right;">479</td>
+<td style="text-align: right;">85.7%</td>
+<td style="text-align: right;">97.5%</td>
+<td style="text-align: right;">119.0M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/convnext/#convnexttiny-function">ConvNeXtTiny</a></td>
+<td style="text-align: right;">109.42</td>
+<td style="text-align: right;">81.3%</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">28.6M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/convnext/#convnextsmall-function">ConvNeXtSmall</a></td>
+<td style="text-align: right;">192.29</td>
+<td style="text-align: right;">82.3%</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">50.2M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/convnext/#convnextbase-function">ConvNeXtBase</a></td>
+<td style="text-align: right;">338.58</td>
+<td style="text-align: right;">85.3%</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">88.5M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/convnext/#convnextlarge-function">ConvNeXtLarge</a></td>
+<td style="text-align: right;">755.07</td>
+<td style="text-align: right;">86.3%</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">197.7M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td><a href="https://keras.io/api/applications/convnext/#convnextxlarge-function">ConvNeXtXLarge</a></td>
+<td style="text-align: right;">1310</td>
+<td style="text-align: right;">86.7%</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">350.1M</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">-</td>
+</tr>
+</tbody>
+</table>
+<p>The top-1 and top-5 accuracy refers to the model's performance on the ImageNet validation dataset.</p>
+<p>Depth refers to the topological depth of the network. This includes activation layers, batch normalization layers etc.</p>
+<p>Time per inference step is the average of 30 batches and 10 repetitions.</p>
+<ul>
+<li>CPU: AMD EPYC Processor (with IBPB) (92 core)</li>
+<li>RAM: 1.7T</li>
+<li>GPU: Tesla A100</li>
+<li>Batch size: 32</li>
+</ul>
+<p>Depth counts the number of layers with parameters.</p>
+<hr>
+<h2 id="usage-examples-for-image-classification-models">Usage examples for image classification models</h2>
+<h3 id="classify-imagenet-classes-with-resnet50">Classify ImageNet classes with ResNet50</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.keras.applications.resnet50</span> <span class="kn">import</span> <span class="n">ResNet50</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.applications.resnet50</span> <span class="kn">import</span> <span class="n">preprocess_input</span><span class="p">,</span> <span class="n">decode_predictions</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ResNet50</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">'imagenet'</span><span class="p">)</span>
+
+<span class="n">img_path</span> <span class="o">=</span> <span class="s1">'elephant.jpg'</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># decode the results into a list of tuples (class, description, probability)</span>
+<span class="c1"># (one such list for each sample in the batch)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">'Predicted:'</span><span class="p">,</span> <span class="n">decode_predictions</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">3</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># Predicted: [(u'n02504013', u'Indian_elephant', 0.82658225), (u'n01871265', u'tusker', 0.1122357), (u'n02504458', u'African_elephant', 0.061040461)]</span>
+</code></pre></div>
+
+<h3 id="extract-features-with-vgg16">Extract features with VGG16</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.keras.applications.vgg16</span> <span class="kn">import</span> <span class="n">VGG16</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.applications.vgg16</span> <span class="kn">import</span> <span class="n">preprocess_input</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">VGG16</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">'imagenet'</span><span class="p">,</span> <span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">img_path</span> <span class="o">=</span> <span class="s1">'elephant.jpg'</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="extract-features-from-an-arbitrary-intermediate-layer-with-vgg19">Extract features from an arbitrary intermediate layer with VGG19</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.keras.applications.vgg19</span> <span class="kn">import</span> <span class="n">VGG19</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.applications.vgg19</span> <span class="kn">import</span> <span class="n">preprocess_input</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">base_model</span> <span class="o">=</span> <span class="n">VGG19</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">'imagenet'</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">base_model</span><span class="o">.</span><span class="n">input</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">base_model</span><span class="o">.</span><span class="n">get_layer</span><span class="p">(</span><span class="s1">'block4_pool'</span><span class="p">)</span><span class="o">.</span><span class="n">output</span><span class="p">)</span>
+
+<span class="n">img_path</span> <span class="o">=</span> <span class="s1">'elephant.jpg'</span>
+<span class="n">img</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">load_img</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">target_size</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">image</span><span class="o">.</span><span class="n">img_to_array</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">preprocess_input</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="n">block4_pool_features</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="finetune-inceptionv3-on-a-new-set-of-classes">Fine-tune InceptionV3 on a new set of classes</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.keras.applications.inception_v3</span> <span class="kn">import</span> <span class="n">InceptionV3</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.preprocessing</span> <span class="kn">import</span> <span class="n">image</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">GlobalAveragePooling2D</span>
+
+<span class="c1"># create the base pre-trained model</span>
+<span class="n">base_model</span> <span class="o">=</span> <span class="n">InceptionV3</span><span class="p">(</span><span class="n">weights</span><span class="o">=</span><span class="s1">'imagenet'</span><span class="p">,</span> <span class="n">include_top</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># add a global spatial average pooling layer</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">base_model</span><span class="o">.</span><span class="n">output</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">GlobalAveragePooling2D</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># let's add a fully-connected layer</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="c1"># and a logistic layer -- let's say we have 200 classes</span>
+<span class="n">predictions</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="c1"># this is the model we will train</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">base_model</span><span class="o">.</span><span class="n">input</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">predictions</span><span class="p">)</span>
+
+<span class="c1"># first: train only the top layers (which were randomly initialized)</span>
+<span class="c1"># i.e. freeze all convolutional InceptionV3 layers</span>
+<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">base_model</span><span class="o">.</span><span class="n">layers</span><span class="p">:</span>
+    <span class="n">layer</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># compile the model (should be done *after* setting layers to non-trainable)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">'rmsprop'</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'categorical_crossentropy'</span><span class="p">)</span>
+
+<span class="c1"># train the model on the new data for a few epochs</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+
+<span class="c1"># at this point, the top layers are well trained and we can start fine-tuning</span>
+<span class="c1"># convolutional layers from inception V3. We will freeze the bottom N layers</span>
+<span class="c1"># and train the remaining top layers.</span>
+
+<span class="c1"># let's visualize layer names and layer indices to see how many layers</span>
+<span class="c1"># we should freeze:</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">base_model</span><span class="o">.</span><span class="n">layers</span><span class="p">):</span>
+   <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">layer</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1"># we chose to train the top 2 inception blocks, i.e. we will freeze</span>
+<span class="c1"># the first 249 layers and unfreeze the rest:</span>
+<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[:</span><span class="mi">249</span><span class="p">]:</span>
+   <span class="n">layer</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">[</span><span class="mi">249</span><span class="p">:]:</span>
+   <span class="n">layer</span><span class="o">.</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># we need to recompile the model for these modifications to take effect</span>
+<span class="c1"># we use SGD with a low learning rate</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">SGD</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">),</span> <span class="n">loss</span><span class="o">=</span><span class="s1">'categorical_crossentropy'</span><span class="p">)</span>
+
+<span class="c1"># we train our model again (this time fine-tuning the top 2 inception blocks</span>
+<span class="c1"># alongside the top Dense layers</span>
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+</code></pre></div>
+
+<h3 id="build-inceptionv3-over-a-custom-input-tensor">Build InceptionV3 over a custom input tensor</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.keras.applications.inception_v3</span> <span class="kn">import</span> <span class="n">InceptionV3</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Input</span>
+
+<span class="c1"># this could also be the output a different Keras model or layer</span>
+<span class="n">input_tensor</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">InceptionV3</span><span class="p">(</span><span class="n">input_tensor</span><span class="o">=</span><span class="n">input_tensor</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s1">'imagenet'</span><span class="p">,</span> <span class="n">include_top</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+        </div>
+        
+        <div class="k-outline">
+          
+            <div class="k-outline-depth-1">
+              
+              <a href="https://keras.io/api/applications/#keras-applications">Keras Applications</a>
+            </div>
+          
+            <div class="k-outline-depth-2">
+               ◆  
+              <a href="https://keras.io/api/applications/#available-models">Available models</a>
+            </div>
+          
+            <div class="k-outline-depth-2">
+               ◆  
+              <a href="https://keras.io/api/applications/#usage-examples-for-image-classification-models">Usage examples for image classification models</a>
+            </div>
+          
+            <div class="k-outline-depth-3">
+              
+              <a href="https://keras.io/api/applications/#classify-imagenet-classes-with-resnet50">Classify ImageNet classes with ResNet50</a>
+            </div>
+          
+            <div class="k-outline-depth-3">
+              
+              <a href="https://keras.io/api/applications/#extract-features-with-vgg16">Extract features with VGG16</a>
+            </div>
+          
+            <div class="k-outline-depth-3">
+              
+              <a href="https://keras.io/api/applications/#extract-features-from-an-arbitrary-intermediate-layer-with-vgg19">Extract features from an arbitrary intermediate layer with VGG19</a>
+            </div>
+          
+            <div class="k-outline-depth-3">
+              
+              <a href="https://keras.io/api/applications/#finetune-inceptionv3-on-a-new-set-of-classes">Fine-tune InceptionV3 on a new set of classes</a>
+            </div>
+          
+            <div class="k-outline-depth-3">
+              
+              <a href="https://keras.io/api/applications/#build-inceptionv3-over-a-custom-input-tensor">Build InceptionV3 over a custom input tensor</a>
+            </div>
+          
+        </div>
+        
+      </div>
+    </div>
+
+  </div>
+
+
+
+<footer style="float: left; width: 100%; padding: 1em; border-top: solid 1px #bbb;">
+  <a href="https://policies.google.com/terms">Terms</a> | <a href="https://policies.google.com/privacy">Privacy</a>
+</footer>
+
+</body></html>
