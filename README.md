@@ -1,40 +1,37 @@
-# DS_Master_project_6
-This repository contains everything related to project 6 of OpenClassrooms' Data Scientist program.
-
-#create a new repository on the command line
-echo "# projet_6" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/a-terrien/projet_6.git
-git push -u origin main
+# Classifiez automatiquement des biens de consommation 
 
 
-Dans ce répertoire sont traités les sujets suivants:
-
-Vscode, Python (version 3.9.17), 
-
-
-librairies: dans le fichier requirements.txt
-
-Le contenu du répertoire projet_6:
-
-les dossiers: 
-- input: avec les images et textes originales et récupérés du contenu d'OpenClassrooms
-- output:
-
-les notebook:
-
-## Enoncé condensé (basé sur le vrai énoncé)
+## Introduction/ Enoncé condensé (basé sur le vrai énoncé)
 Ce sujet traite de la faisabilité d'une catégorisation automatique des nouveaux produits vendus via "Place de marché”, société dans l'e-commerce.
-Le but est de créer des modèles non-supervisés puis supervisés de type classification textuelle puis de type classification visuelle. 
+Le but est de créer des modèles non-supervisés puis supervisés classifiant les produits à partir des données textuelles ou visuelles accompagnant le produit.[<sup>1</sup>](https://openclassrooms.com/fr/paths/164/projects/631/assignment)
 
 ### Déroulé du sujet
-Le sujet sera sectionné en trois sous-partie:
-1. Création de modèles non supervisés se basant sur du texte puis sur des images
-2. Création de modèles supervisés se basant sur le meilleur modèle non-supervisé
-3. Création d'une API 
+Le sujet sera sectionné en quatre sous-partie:
+1. Exploration et Analyse de la donnée textuelle et visuelle 
+2. Création de modèles non supervisés se basant sur du texte puis sur des images
+3. Création de modèles supervisés se basant sur le meilleur modèle non-supervisé
+4. Création d'une API 
+
+### Ordre des supports
+Voici l'ordre de lecture des supports: 
+1. le dossier Terrien_Audrey_1_pretraitement_feature_extraction_faisaibilite_092023
+   1. le fichier Terrien_Audrey_1_exploration_textuelle.ipynb
+   2. le fichier Terrien_Audrey_1_exploration_visuelle.ipynb
+   3. le fichier Terrien_Audrey_3_classification_non_supervisée_textuelle.ipynb
+   4. le fichier Terrien_Audrey_3_classification_non_supervisée_ancienne_visuelle.ipynb
+2. le dossier my_packages qui contient plusieurs fonctions dans ses sous-fichiers python
+3. le fichier Terrien_Audrey_2_notebook_classification_092023.ipynb
+4. le fichier Terrien_Audrey_3_notebook_traitement_avec_technique_recente_092023.ipynb
+5. le fichier Terrien_Audrey_4_script_Python_092023.ipynb
+
+Ensuite pour compléter, il existe d'autres fichiers/documents qui n'ont pas un ordre de lecture particulier mais qui viennent compléter le travail et sa compréhension.
+Ces derniers sont:
+- Le dossier img_notebooks qui contient les images qui ont été insérées soit dans les notebooks, soit dans le fichier README.md.
+- Le dossier input qui contient la donnée originale (flipkart_com-ecommerce_sample_1050.csv ou Images) mais aussi les sous-dossiers d'images redimensionnées/retravaillées pour remplacer les images qui passent dans les modèles de classification.
+- Le dossier oc_help qui contient les différents fichiers présentés dans l'énoncé de base et qui ont été donnés par OC pour avancer plus vite sur le projet
+- Le dossier output qui contient des fichiers de sortie comme les modèles ou les résultats des modèles
+- les fichiers README.md et LICENCE
+- les fichiers requirements.txt, .gitignore, .gitattributes
 
 ### Les étapes à faire
 Dans une première partie, il faut faire des modèles non-supervisés passant par les étapes suivantes: 
@@ -68,14 +65,14 @@ OC admet qu'il n’y avait aucune contrainte de propriété intellectuelle sur l
 ### Référentiel d'évaluation
 
 #### Prétraiter des données textes pour obtenir un jeu de données exploitable
-- [ ] Nettoyage des champs de texte (suppression de la ponctuation et des mots de liaison, mise en minuscules)
-- [ ] Ecriture d'une fonction permettant de “tokeniser” une phrase.
-- [ ] Ecriture d'une fonction permettant de “stemmer” une phrase.
-- [ ] Ecriture d'une fonction permettant de “lemmatiser” une phrase.
+- [x] Nettoyage des champs de texte (suppression de la ponctuation et des mots de liaison, mise en minuscules)
+- [x] Ecriture d'une fonction permettant de “tokeniser” une phrase.
+- [x] Ecriture d'une fonction permettant de “stemmer” une phrase.
+- [x] Ecriture d'une fonction permettant de “lemmatiser” une phrase.
 - [ ] Feature engineering de type bag-of-words (bag-of-words standard : comptage de mots, et Tf-idf), avec des étapes de nettoyage supplémentaires : seuil de fréquence des mots, normalisation des mots.
 - [ ] Illustration des 5 étapes précédentes sur une phrase test.
 - [ ] Mis en oeuvre 3 démarches de word/sentence embedding : Word2Vec, BERT et USE
-- [ ] Vérification du respect de la propriété intellectuelle 
+- [x] Vérification du respect de la propriété intellectuelle[<sup>1</sup>](Terrien_Audrey_1_pretraitement_feature_extraction_faisaibilite_092023/Terrien_Audrey_1_exploration_textuelle.ipynb)
 
 #### Prétraiter des données images pour obtenir un jeu de données exploitable
 - [ ] Utilisation de librairies spécialisées pour un premier traitement du contraste (ex. : openCV). 
@@ -123,3 +120,46 @@ OC admet qu'il n’y avait aucune contrainte de propriété intellectuelle sur l
 ### Utiliser des techniques d’augmentation des données afin d'améliorer la performance des modèles.
 - [ ] Techniques d’augmentation des données (ex. pour des images : rotation, changement d’échelle, ajout de bruit…). 
 - [ ] Synthèse comparative des améliorations de performance grâce aux différentes techniques d'augmentation de données utilisées (maîtrise de l’overfitting, meilleur score).
+
+
+Pour la soutenance orale, voici le déroulé à suivre:
+Durée: 30 minutes dont 10 mn de discussion et de débriefing. 
+
+Présentation (20 minutes) 
+- [ ] Rappel de la problématique et présentation du jeu de données (2 minutes).
+- [ ] Modèles non supervisés et des explications sur les étapes:
+  - [ ] de prétraitements,
+  - [ ] des extractions de features et 
+  - [ ] des résultats de l’étude de faisabilité (10 minutes).
+- [ ] Résultats de la classification supervisée (3 minutes)
+- [ ] Test de l’API (1 minute)
+- [ ] Travail de veille et preuve de concept d’une technique récente et conclusion (4 minutes)
+
+
+![Texte alternatif](img_notebooks/proof_of_use.png)
+
+
+#create a new repository on the command line
+echo "# projet_6" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/a-terrien/projet_6.git
+git push -u origin main
+
+
+Dans ce répertoire sont traités les sujets suivants:
+
+Vscode, Python (version 3.9.17), 
+
+
+librairies: dans le fichier requirements.txt
+
+Le contenu du répertoire projet_6:
+
+les dossiers: 
+- input: avec les images et textes originales et récupérés du contenu d'OpenClassrooms
+- output:
+
+les notebook:
