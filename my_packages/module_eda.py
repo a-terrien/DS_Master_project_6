@@ -10,7 +10,7 @@ import seaborn as sns
 from wordcloud import WordCloud
 import cv2
 from PIL import Image
-from dhash import dhash_int
+#from dhash import dhash_int
 
 # Création d'une table qui contient les informations générales pour chacune de ses colonnes
 def info_table(table):

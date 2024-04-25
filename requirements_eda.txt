@@ -1,0 +1,9 @@
+ipykernel==6.29.3
+pandas==2.1.0
+matplotlib==3.7.2
+plotly==5.16.1
+seaborn==0.12.2
+wordcloud==1.9.2
+opencv-python==4.8.0.76
+scipy==1.11.2
+scikit-learn==1.4.2
