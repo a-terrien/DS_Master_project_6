@@ -86,16 +86,16 @@ librairies: dans le fichier requirements.txt
 - [ ] Vérification du respect de la propriété intellectuelle[<sup>11</sup>](#intel-prop) 
 
 #### Mettre en œuvre des techniques de réduction de dimension
-- [ ] Justification de la réduction de dimension
-- [ ] Réduction de dimension adaptée à la problématique (ex. : ACP)
-- [ ] Justification le choix des valeurs des paramètres dans la méthode de réduction de dimension retenue (ex. : le nombre de dimensions conservées pour l'ACP)
+- [ ] Justification de la réduction de dimension[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
+- [ ] Réduction de dimension adaptée à la problématique (ex. : ACP)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
+- [ ] Justification le choix des valeurs des paramètres dans la méthode de réduction de dimension retenue (ex. : le nombre de dimensions conservées pour l'ACP)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
 
 #### Représentation graphique des données à grandes dimensions
-- [ ] Technique de réduction de dimension (via LDA, ACP, T-SNE, UMAP ou autre technique)
-- [ ] Visualisation graphique des données réduites en 2D (par exemple affichage des 2 composantes du T-SNE)
-- [ ] Analyse graphique en 2D
+- [ ] Technique de réduction de dimension (via LDA, ACP, T-SNE, UMAP ou autre technique)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
+- [ ] Visualisation graphique des données réduites en 2D (par exemple affichage des 2 composantes du T-SNE)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
+- [ ] Analyse graphique en 2D[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
 
-#### Définir la stratégie de collecte de données en recensant les API disponibles, et réaliser la collecte des données répondant à des critères définis via une API (interface de programmation) en prenant en compte les normes RGPD, afin de les exploiter pour l’élaboration d’un modèle.
+#### Définir la stratégie de collecte de données en recensant les API disponibles, et réaliser la collecte des données répondant à des critères définis via une API (interface de programmation) en prenant en compte les normes RGPD, afin de les exploiter pour l’élaboration d’un modèle.[<sup>30</sup>](Terrien_Audrey_4_script_Python_052024.ipynb)
 - [ ] Exposition de la stratégie de collecte de données et recencement des API disponibles pour la mise en oeuvre du projet
 - [ ] Création et test d'une requête pour obtenir les données via l’API
 - [ ] Récupération des seuls champs strictement nécessaires. Ici, il s'agit des champs: foodId, label, category, foodContentsLabel et image. 
@@ -147,3 +147,19 @@ OC admet qu'il n’y avait aucune contrainte de propriété intellectuelle sur l
 Le dossier Flipkart a été échantillonné à partir de données transférées sur Kaggle, avec l'autorisation de Flipkart. L'image ci-dessous explicite clairement qu'ils tombent sous la licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Elle stipule qu'il est possible d'utiliser, de modifier et de partager ces données. Nous pouvons donc continuer le reste de l'étude de faisabilité sans nous soucier d'enfreindre la loi de ce côté-là. 
 ![screenshot-licenceKaggle](img_notebooks/proof_of_use.png)
 Cependant cela n'inclut que le dataframe. Mais, d'après l'énoncé d'OpenClassrooms, "Linda" s'est assuré qu'il n'y avait ["aucune contrainte de propriété intellectuelle sur les données ET les images"](https://openclassrooms.com/fr/paths/164/projects/631/assignment). Ainsi même si en regardant cette [page](https://affiliate.flipkart.com/terms-of-use) dans la section "Trademark, Copyright and Restriction", il est dit que nous ne pouvons pas utiliser les images sans leur autorisation, j'en conclu qu'OpenClassrooms a pris toutes les précautions nécessaires pour s'assurer que nous n'enfreignons aucune règle.
+
+## Création de l'environnement de travail
+les outils pour pouvoir recréer ce projet:
+- GIT, GITHUB, git-LFS (pour les gros fichiers)
+- Conda
+- python (version 3.9.17)
+
+les librairies: 
+- voir le fichier requirements et le dossier my_packages
+```
+# pour créer un environnement conda 
+conda create --name ocds6 python=3.9.17
+conda activate ocds6
+```
+
+
