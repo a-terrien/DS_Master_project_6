@@ -163,3 +163,18 @@ les dossiers:
 - output:
 
 les notebook:
+
+
+__Contexte__
+
+Place de marché® est un e-commerce qui met directement en relation les vendeurs et les acheteurs. A ce jour, les vendeurs doivent insérer une photo, une description du produit qu'ils vendent et ensuite lui donner une catégorie pré-déterminée par la société. Cependant, il arrive que les vendeurs se trompent lorsqu'ils choississent la catégorie à laquelle appartient leur produit. 
+
+__Problématiques__
+
+C'est pourquoi Place de marché® souhaite automatiser la catégorisation des produits à partir de l'image et/ou de la description liées au produit à l'aide d'un moteur de classifiation automatique.
+
+__Droits d'utilisation des données Flipkart__
+
+Le dossier Flipkart a été échantillonné à partir de données transférées sur Kaggle, avec l'autorisation de Flipkart. L'image ci-dessous explicite clairement qu'ils tombent sous la licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Elle stipule qu'il est possible d'utiliser, de modifier et de partager ces données. Nous pouvons donc continuer le reste de l'étude de faisabilité sans nous soucier d'enfreindre la loi de ce côté-là. 
+
+Cependant cela n'inclut que le dataframe. Mais, d'après l'énoncé d'OpenClassrooms, "Linda" s'est assuré qu'il n'y avait ["aucune contrainte de propriété intellectuelle sur les données ET les images"](https://openclassrooms.com/fr/paths/164/projects/631/assignment). Ainsi même si en regardant la page "https://affiliate.flipkart.com/terms-of-use" dans la section "Trademark, Copyright and Restriction", il est dit que nous ne pouvons pas utiliser les images sans leur autorisation, j'en conclu qu'OpenClassrooms a pris toutes les précautions nécessaires pour s'assurer que nous n'enfreignons aucune règle.
