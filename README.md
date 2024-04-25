@@ -5,10 +5,12 @@ Attention! Lire ce fichier avant de continuer sur les autres car il contient des
 
 ### Contexte
 Place de marché® est un e-commerce qui met directement en relation les vendeurs et les acheteurs. A ce jour, les vendeurs doivent insérer une photo, une description du produit qu'ils vendent et ensuite lui donner une catégorie pré-déterminée par la société. Cependant, il arrive que les vendeurs se trompent lorsqu'ils choississent la catégorie à laquelle appartient leur produit.
+<div style="text-align:center;">
+    <img src="img_notebooks/logo-entreprise.png" alt="logo" width="300">
+</div>
 
 ### Problématique
 C'est pourquoi Place de marché® souhaite automatiser la catégorisation des produits à partir de l'image et/ou de la description liées au produit à l'aide d'un moteur de classifiation automatique.[<sup>1</sup>](https://openclassrooms.com/fr/paths/164/projects/631/assignment)
-
 
 ### Déroulé du sujet
 Le sujet sera sectionné en quatre sous-partie:
@@ -20,15 +22,15 @@ Le sujet sera sectionné en quatre sous-partie:
 ### Ordre des supports
 Voici l'ordre de lecture des supports:
 0. le fichier README.md dans lequel vous allez retrouver le condensé de l'énoncé, le plan à suivre pour comprendre le projet et bien le manipuler 
-1. le dossier Terrien_Audrey_1_pretraitement_feature_extraction_faisaibilite_092023
+1. le dossier Terrien_Audrey_1_pretraitement_feature_extraction_faisaibilite_052024
    1. le fichier Terrien_Audrey_1_exploration_textuelle.ipynb
    2. le fichier Terrien_Audrey_1_exploration_visuelle.ipynb
    3. le fichier Terrien_Audrey_3_classification_non_supervisée_textuelle.ipynb
    4. le fichier Terrien_Audrey_3_classification_non_supervisée_ancienne_visuelle.ipynb
 2. le dossier my_packages qui contient plusieurs fonctions dans ses sous-fichiers python
-3. le fichier Terrien_Audrey_2_notebook_classification_092023.ipynb
-4. le fichier Terrien_Audrey_3_notebook_traitement_avec_technique_recente_092023.ipynb
-5. le fichier Terrien_Audrey_4_script_Python_092023.ipynb
+3. le fichier Terrien_Audrey_2_notebook_classification_052024.ipynb
+4. le fichier Terrien_Audrey_3_notebook_traitement_avec_technique_recente_052024.ipynb
+5. le fichier Terrien_Audrey_4_script_Python_052024.ipynb
 
 Ensuite pour compléter, il existe d'autres fichiers/documents qui n'ont pas un ordre de lecture particulier mais qui viennent compléter le travail et sa compréhension.
 Ces derniers sont:
@@ -95,15 +97,15 @@ librairies: dans le fichier requirements.txt
 - [ ] Visualisation graphique des données réduites en 2D (par exemple affichage des 2 composantes du T-SNE)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
 - [ ] Analyse graphique en 2D[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)[<sup>15</sup>](dossier/fichier.ipynb)
 
-#### Définir la stratégie de collecte de données en recensant les API disponibles, et réaliser la collecte des données répondant à des critères définis via une API (interface de programmation) en prenant en compte les normes RGPD, afin de les exploiter pour l’élaboration d’un modèle.[<sup>30</sup>](Terrien_Audrey_4_script_Python_052024.ipynb)
-- [ ] Exposition de la stratégie de collecte de données et recencement des API disponibles pour la mise en oeuvre du projet
-- [ ] Création et test d'une requête pour obtenir les données via l’API
-- [ ] Récupération des seuls champs strictement nécessaires. Ici, il s'agit des champs: foodId, label, category, foodContentsLabel et image. 
-- [ ] Filtrage de la data pour ne récupérer que les lignes correspondant à l’ingrédient (“ingr”) champagne
-- [ ] Stockage des données collectées via l’API dans un fichier utilisable (ex. : fichier CSV ou pickle).
-- [ ] Vérification du respect des normes RGPD dans la collecte et du stockage des données
-  - [ ] Présentation des 5 grands principes du RGPD 
-  - [ ] Vérification de l'utilisation uniquement des données nécessaire pour traiter le sujet
+#### Définir la stratégie de collecte de données en recensant les API disponibles, et réaliser la collecte des données répondant à des critères définis via une API (interface de programmation) en prenant en compte les normes RGPD, afin de les exploiter pour l’élaboration d’un modèle.[<sup>api</sup>](Terrien_Audrey_4_script_Python_052024.ipynb#api)
+- [x] Exposition de la stratégie de collecte de données et recencement des API disponibles pour la mise en oeuvre du projet
+- [x] Création et test d'une requête pour obtenir les données via l’API
+- [x] Récupération des seuls champs strictement nécessaires. Ici, il s'agit des champs: foodId, label, category, foodContentsLabel et image. 
+- [x] Filtrage de la data pour ne récupérer que les lignes correspondant à l’ingrédient (“ingr”) champagne
+- [x] Stockage des données collectées via l’API dans un fichier utilisable (ex. : fichier CSV ou pickle).
+- [x] Vérification du respect des normes RGPD dans la collecte et du stockage des données
+  - [x] Présentation des 5 grands principes du RGPD 
+  - [x] Vérification de l'utilisation uniquement des données nécessaire pour traiter le sujet [<sup>api-results</sup>](output/champagne.csv)
 
 #### Définir la stratégie d’élaboration d’un modèle d'apprentissage profond, concevoir ou ré-utiliser des modèles pré-entraînés (transfer learning) et entraîner des modèles afin de réaliser une analyse prédictive.
 - [ ] Exposition de la stratégie d’élaboration d’un modèle pour répondre à un besoin métier (par exemple : choix de conception d’un modèle ré-utilisation de modèles pré-entraînés).
