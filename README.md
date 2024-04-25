@@ -1,9 +1,14 @@
 # Classifiez automatiquement des biens de consommation 
+Attention! Lire ce fichier avant de continuer sur les autres car il contient des éléments pris en compte lors de l'évaluation des critères à respecter
 
+## Introduction
 
-## Introduction/ Enoncé condensé (basé sur le vrai énoncé)
-Ce sujet traite de la faisabilité d'une catégorisation automatique des nouveaux produits vendus via "Place de marché”, société dans l'e-commerce.
-Le but est de créer des modèles non-supervisés puis supervisés classifiant les produits à partir des données textuelles ou visuelles accompagnant le produit.[<sup>1</sup>](https://openclassrooms.com/fr/paths/164/projects/631/assignment)
+### Contexte
+Place de marché® est un e-commerce qui met directement en relation les vendeurs et les acheteurs. A ce jour, les vendeurs doivent insérer une photo, une description du produit qu'ils vendent et ensuite lui donner une catégorie pré-déterminée par la société. Cependant, il arrive que les vendeurs se trompent lorsqu'ils choississent la catégorie à laquelle appartient leur produit.
+
+### Problématique
+C'est pourquoi Place de marché® souhaite automatiser la catégorisation des produits à partir de l'image et/ou de la description liées au produit à l'aide d'un moteur de classifiation automatique.[<sup>1</sup>](https://openclassrooms.com/fr/paths/164/projects/631/assignment)
+
 
 ### Déroulé du sujet
 Le sujet sera sectionné en quatre sous-partie:
@@ -13,7 +18,8 @@ Le sujet sera sectionné en quatre sous-partie:
 4. Création d'une API 
 
 ### Ordre des supports
-Voici l'ordre de lecture des supports: 
+Voici l'ordre de lecture des supports:
+0. le fichier README.md dans lequel vous allez retrouver le condensé de l'énoncé, le plan à suivre pour comprendre le projet et bien le manipuler 
 1. le dossier Terrien_Audrey_1_pretraitement_feature_extraction_faisaibilite_092023
    1. le fichier Terrien_Audrey_1_exploration_textuelle.ipynb
    2. le fichier Terrien_Audrey_1_exploration_visuelle.ipynb
@@ -30,7 +36,7 @@ Ces derniers sont:
 - Le dossier input qui contient la donnée originale (flipkart_com-ecommerce_sample_1050.csv ou Images) mais aussi les sous-dossiers d'images redimensionnées/retravaillées pour remplacer les images qui passent dans les modèles de classification.
 - Le dossier oc_help qui contient les différents fichiers présentés dans l'énoncé de base et qui ont été donnés par OC pour avancer plus vite sur le projet
 - Le dossier output qui contient des fichiers de sortie comme les modèles ou les résultats des modèles
-- les fichiers README.md et LICENCE
+- les fichiers Definitions.md et LICENCE
 - les fichiers requirements.txt, .gitignore, .gitattributes
 
 ### Les étapes à faire
@@ -57,33 +63,31 @@ Dans la dernière partie du sujet, il faut utiliser une API pour ramener les don
 ### Matériels supplémentaires fournis par OpenClassrooms
 Des documents ont été fournis par OpenClassrooms pour gagner du temps dans le traitement du sujet en question. Ils peuvent être retrouvés dans le dossier oc_help. 
 
-### Clause de non-responsabilité
-OC admet qu'il n’y avait aucune contrainte de propriété intellectuelle sur les données et les images dans [l'énoncé](https://openclassrooms.com/fr/paths/164/projects/631/assignment).
-*[23/04/2024]*. 
+### Matériels et librairies pour recréer ce projet
+Vscode, Python (version 3.9.17), 
+librairies: dans le fichier requirements.txt
 
-
-### Référentiel d'évaluation
-
+## Référentiel d'évaluation
 #### Prétraiter des données textes pour obtenir un jeu de données exploitable
-- [x] Nettoyage des champs de texte (suppression de la ponctuation et des mots de liaison, mise en minuscules)
-- [x] Ecriture d'une fonction permettant de “tokeniser” une phrase.
-- [x] Ecriture d'une fonction permettant de “stemmer” une phrase.
-- [x] Ecriture d'une fonction permettant de “lemmatiser” une phrase.
-- [ ] Feature engineering de type bag-of-words (bag-of-words standard : comptage de mots, et Tf-idf), avec des étapes de nettoyage supplémentaires : seuil de fréquence des mots, normalisation des mots.
-- [ ] Illustration des 5 étapes précédentes sur une phrase test.
-- [ ] Mis en oeuvre 3 démarches de word/sentence embedding : Word2Vec, BERT et USE
-- [x] Vérification du respect de la propriété intellectuelle[<sup>1</sup>](Terrien_Audrey_1_pretraitement_feature_extraction_faisaibilite_092023/Terrien_Audrey_1_exploration_textuelle.ipynb)
+- [x] Nettoyage des champs de texte (suppression de la ponctuation et des mots de liaison, mise en minuscules) [<sup>1</sup>](dossier/fichier.ipynb)
+- [x] Ecriture d'une fonction permettant de “tokeniser” une phrase[<sup>2</sup>](dossier/fichier.ipynb)
+- [x] Ecriture d'une fonction permettant de “stemmer” une phrase[<sup>3</sup>](dossier/fichier.ipynb)
+- [x] Ecriture d'une fonction permettant de “lemmatiser” une phrase[<sup>4</sup>](dossier/fichier.ipynb)
+- [ ] Feature engineering de type bag-of-words (bag-of-words standard : comptage de mots, et Tf-idf), avec des étapes de nettoyage supplémentaires : seuil de fréquence des mots, normalisation des mots[<sup>5</sup>](dossier/fichier.ipynb)[<sup>6</sup>](dossier/fichier.ipynb)
+- [ ] Illustration des 5 étapes précédentes sur une phrase test[<sup>7</sup>](dossier/fichier.ipynb)
+- [ ] Mis en oeuvre 3 démarches de word/sentence embedding : Word2Vec, BERT et USE[<sup>8</sup>](dossier/fichier.ipynb)[<sup>9</sup>](dossier/fichier.ipynb)[<sup>10</sup>](dossier/fichier.ipynb)
+- [x] Vérification du respect de la propriété intellectuelle[<sup>11</sup>](#intel-prop)
 
 #### Prétraiter des données images pour obtenir un jeu de données exploitable
-- [ ] Utilisation de librairies spécialisées pour un premier traitement du contraste (ex. : openCV). 
-- [ ] Traitement d'images (par exemple passage en gris, filtrage du bruit, égalisation, floutage) sur un ou plusieurs exemples. 
-- [ ] Feature engineering de type "bag-of-images" via la génération de descripteurs (algorithmes ORB, ou SIFT, ou SURF). 
-- [ ] Feature engineering via un algorithme de Transfer Learning basé sur des réseaux de neurones, comme par exemple CNN. 
-- [ ] Vérification du respect de la propriété intellectuelle 
+- [ ] Utilisation de librairies spécialisées pour un premier traitement du contraste (ex. : openCV)[<sup>12</sup>](dossier/fichier.ipynb)
+- [ ] Traitement d'images (par exemple passage en gris, filtrage du bruit, égalisation, floutage) sur un ou plusieurs exemples[<sup>13</sup>](dossier/fichier.ipynb)[<sup>14</sup>](dossier/fichier.ipynb)[<sup>14</sup>](dossier/fichier.ipynb)[<sup>14</sup>](dossier/fichier.ipynb)
+- [ ] Feature engineering de type "bag-of-images" via la génération de descripteurs (algorithmes ORB, ou SIFT, ou SURF)[<sup>14</sup>](dossier/fichier.ipynb)[<sup>14</sup>](dossier/fichier.ipynb)
+- [ ] Feature engineering via un algorithme de Transfer Learning basé sur des réseaux de neurones, comme par exemple CNN[<sup>15</sup>](dossier/fichier.ipynb)
+- [ ] Vérification du respect de la propriété intellectuelle[<sup>11</sup>](#intel-prop) 
 
 #### Mettre en œuvre des techniques de réduction de dimension
 - [ ] Justification de la réduction de dimension
-- [ ] Réduction de dimension adaptée à la problématique (ex. : ACP).
+- [ ] Réduction de dimension adaptée à la problématique (ex. : ACP)
 - [ ] Justification le choix des valeurs des paramètres dans la méthode de réduction de dimension retenue (ex. : le nombre de dimensions conservées pour l'ACP)
 
 #### Représentation graphique des données à grandes dimensions
@@ -121,7 +125,7 @@ OC admet qu'il n’y avait aucune contrainte de propriété intellectuelle sur l
 - [ ] Techniques d’augmentation des données (ex. pour des images : rotation, changement d’échelle, ajout de bruit…). 
 - [ ] Synthèse comparative des améliorations de performance grâce aux différentes techniques d'augmentation de données utilisées (maîtrise de l’overfitting, meilleur score).
 
-
+### La soutenance
 Pour la soutenance orale, voici le déroulé à suivre:
 Durée: 30 minutes dont 10 mn de discussion et de débriefing. 
 
@@ -135,46 +139,11 @@ Présentation (20 minutes)
 - [ ] Test de l’API (1 minute)
 - [ ] Travail de veille et preuve de concept d’une technique récente et conclusion (4 minutes)
 
-
-![Texte alternatif](img_notebooks/proof_of_use.png)
-
-
-#create a new repository on the command line
-echo "# projet_6" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/a-terrien/projet_6.git
-git push -u origin main
-
-
-Dans ce répertoire sont traités les sujets suivants:
-
-Vscode, Python (version 3.9.17), 
-
-
-librairies: dans le fichier requirements.txt
-
-Le contenu du répertoire projet_6:
-
-les dossiers: 
-- input: avec les images et textes originales et récupérés du contenu d'OpenClassrooms
-- output:
-
-les notebook:
-
-
-__Contexte__
-
-Place de marché® est un e-commerce qui met directement en relation les vendeurs et les acheteurs. A ce jour, les vendeurs doivent insérer une photo, une description du produit qu'ils vendent et ensuite lui donner une catégorie pré-déterminée par la société. Cependant, il arrive que les vendeurs se trompent lorsqu'ils choississent la catégorie à laquelle appartient leur produit. 
-
-__Problématiques__
-
-C'est pourquoi Place de marché® souhaite automatiser la catégorisation des produits à partir de l'image et/ou de la description liées au produit à l'aide d'un moteur de classifiation automatique.
-
-__Droits d'utilisation des données Flipkart__
+## Les droits à respecter
+### Clause de non-responsabilité sur les droits d'utilisation des données Flipkart <div id="intel-prop"></div>
+OC admet qu'il n’y avait aucune contrainte de propriété intellectuelle sur les données et les images dans [l'énoncé](https://openclassrooms.com/fr/paths/164/projects/631/assignment).
+*[23/04/2024]*. 
 
 Le dossier Flipkart a été échantillonné à partir de données transférées sur Kaggle, avec l'autorisation de Flipkart. L'image ci-dessous explicite clairement qu'ils tombent sous la licence [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). Elle stipule qu'il est possible d'utiliser, de modifier et de partager ces données. Nous pouvons donc continuer le reste de l'étude de faisabilité sans nous soucier d'enfreindre la loi de ce côté-là. 
-
-Cependant cela n'inclut que le dataframe. Mais, d'après l'énoncé d'OpenClassrooms, "Linda" s'est assuré qu'il n'y avait ["aucune contrainte de propriété intellectuelle sur les données ET les images"](https://openclassrooms.com/fr/paths/164/projects/631/assignment). Ainsi même si en regardant la page "https://affiliate.flipkart.com/terms-of-use" dans la section "Trademark, Copyright and Restriction", il est dit que nous ne pouvons pas utiliser les images sans leur autorisation, j'en conclu qu'OpenClassrooms a pris toutes les précautions nécessaires pour s'assurer que nous n'enfreignons aucune règle.
+![screenshot-licenceKaggle](img_notebooks/proof_of_use.png)
+Cependant cela n'inclut que le dataframe. Mais, d'après l'énoncé d'OpenClassrooms, "Linda" s'est assuré qu'il n'y avait ["aucune contrainte de propriété intellectuelle sur les données ET les images"](https://openclassrooms.com/fr/paths/164/projects/631/assignment). Ainsi même si en regardant cette [page](https://affiliate.flipkart.com/terms-of-use) dans la section "Trademark, Copyright and Restriction", il est dit que nous ne pouvons pas utiliser les images sans leur autorisation, j'en conclu qu'OpenClassrooms a pris toutes les précautions nécessaires pour s'assurer que nous n'enfreignons aucune règle.
