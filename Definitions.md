@@ -54,15 +54,31 @@ Notez que SURF étant breveté, il n'est pas inclus dans certaines distributions
 
 ## API 
 
-## Classification non-supervisée
+## Classification non-supervisée ou clustering
+"L'approche non supervisée consiste à explorer des données sans guide. [... et elle] consiste en l'organisation d'individus en groupes homogènes. En gros, on définit des classes que l'on ne connaît pas à l'avance." 
 
 ## Classification supervisée
+"L'approche supervisée apprend pour prévoir (une variable quantitative, dans le cas d'une régression ; ou une variable qualitative, dans le cas d'une classification).[... et elle] consiste à ranger les individus dans des classes connues."
 
-## Approche bag-of-words
+Source: 
+- [Cours: Réalisez une analyse exploratoire de données. Chapitre: Découvrez les méthodes factorielles et la classification non supervisée](https://openclassrooms.com/fr/courses/4525281-realisez-une-analyse-exploratoire-de-donnees/5291335-decouvrez-les-methodes-factorielles-et-la-classification-non-supervisee). (Mis à jour le 11/12/2023)
 
-## Comptage de mots
+## Approche bag-of-words (aka BOW) ou sac-de-mots 
+La méthode "sac de mots" (ou bag of words) est une approche simple pour représenter un document texte numériquement. Chaque document est considéré comme un ensemble de mots uniques, sans tenir compte de leur ordre ou de leur contexte. On crée un vocabulaire avec tous les mots uniques, puis on représente chaque document par un vecteur de la taille du vocabulaire, où chaque élément représente la fréquence d'apparition du mot correspondant. Ces vecteurs sont ensuite utilisés pour former une matrice de documents-termes, utilisée dans les algorithmes de traitement de texte.
 
-## Tf-idf
+Les techniques des sacs de mots passent par des techniques de normalisation des mots. En traitement du langage naturel, c'est le processus de mise en forme des mots pour les rendre plus uniformes et comparables. Cela implique souvent de mettre tous les mots en minuscules, de supprimer la ponctuation et les accents, et de remplacer les variantes orthographiques d'un même mot par la même forme.
+
+Il existe plusieurs approches BOW dont: 
+- la __technique du sac de mots - comptage de mots__
+- la __technique de Tf-Idf__
+  
+__Sources:__
+- Le site web de référence en traitement du langage naturel, "Natural Language Toolkit" (NLTK)
+- Le site web de la bibliothèque Python pour le traitement du langage naturel, "spaCy".
+
+## Comptage simple de mots
+
+## Tf-idf (Term-Frequency - Inverse Document Frequency)
 
 ## Approche word/sentence classique
 
@@ -73,27 +89,57 @@ Notez que SURF étant breveté, il n'est pas inclus dans certaines distributions
 ### Glove 
 
 ### FastText
+FastText est une bibliothèque open source développée par Facebook AI Research (FAIR) pour apprendre l'intégration de mots et la classification de mots. Cette bibliothèque permet de créer des algorithmes d'apprentissage supervisé ou non supervisé pour obtenir des représentations vectorielles de mots. Elle prend en charge les modèles CBOW et Skip-gram. FastText est utilisé pour trouver des similitudes sémantiques et pour la classification de texte, comme le filtrage du spam. Il peut former de grands ensembles de données en quelques minutes, offrant une alternative rapide aux modèles basés sur des réseaux neuronaux profonds. Les représentations de mots générées par FastText contiennent des informations sur les sous-mots, ce qui aide le modèle à établir une similarité sémantique entre les mots. FastText utilise également la technique des N-Gram pour entraîner le modèle, ce qui lui permet de capturer la signification des suffixes/préfixes pour les mots donnés dans le corpus. Il peut être utilisé sur des langues morphologiquement riches comme l'espagnol, le français et l'allemand. [Source: GeeksforGeeks, "Fonctionnement et mise en œuvre de FastText", Dernière mise à jour : 26 novembre 2020]
 
 ## Approche word/sentence actuelle
 ### BERT
+BERT, acronyme de Bidirectional Encoder Representations from Transformers, est un modèle de deep learning pré-entraîné développé par la filière d'intelligence artificielle de Google (Google AI) et publié en octobre 2018. Conçu pour le traitement automatique du langage naturel (NLP), BERT a suscité un vif intérêt dans la communauté de la data science en raison de ses performances « State-of-the-art », dépassant même les performances humaines dans certaines tâches. Contrairement aux modèles de NLP pré-BERT, qui adoptaient une approche unidirectionnelle pour comprendre le texte, BERT utilise une méthode bi-directionnelle, lui permettant d'avoir une meilleure compréhension du contexte. En utilisant la technique Masked Language Model (MLM), BERT masque aléatoirement des mots dans une phrase puis tente de les prédire, en prenant en compte à la fois le contexte précédent et suivant. Techniquement, BERT est basé sur l'architecture des Transformers, composée d'un encodeur pour lire le texte et d'un décodeur pour faire des prédictions. Avant d'utiliser BERT, une préparation des données est nécessaire, notamment la tokenisation des mots, l'ajout de tokens de début et de fin de phrase, ainsi que l'ajout de marqueurs de position à chaque token. BERT offre plusieurs modèles de différentes tailles, permettant à l'utilisateur de choisir la complexité adaptée à sa tâche. En intégrant BERT à une architecture, il devient possible de réaliser des prédictions dans diverses applications de NLP, telles que la classification de texte selon le sentiment ou la création d'assistants virtuels intelligents. (Source: "BERT : Un outil de traitement du langage innovant" par Jérémy Robert, publié le 30 septembre 2021 sur Data Scientist, disponible à l'adresse suivante : https://datascientest.com/bert-un-outil-de-traitement-du-langage-innovant)
 
 ### USE (Universal Sentence Encoder)
+L'Universal Sentence Encoder (USE) de Google est un outil qui encode les textes en vecteurs numériques de haute dimension, permettant ainsi leur utilisation dans diverses tâches de traitement automatique du langage naturel (TALN) telles que la classification de texte, la similarité sémantique et le regroupement. Le USE est disponible en pré-entraîné dans Tensorflow-hub et offre deux variantes : l'une entraînée avec un encodeur Transformer et l'autre avec un réseau d'agrégation profond (Deep Averaging Network, DAN). Ces deux variantes présentent un compromis entre précision et exigences en ressources computationnelles. Le modèle avec un encodeur Transformer offre une précision plus élevée mais nécessite plus de ressources computationnelles, tandis que celui avec un encodage DAN est moins intensif en ressources mais avec une précision légèrement inférieure. L'USE est largement utilisé comme couche d'incorporation (embedding layer) au début des modèles de Deep Learning pour le traitement de texte. (Source: "Use-cases of Google’s Universal Sentence Encoder in Production" par Sambit Mahapatra, publié le 24 janvier 2019 sur Towards Data Science, disponible à l'adresse suivante : https://towardsdatascience.com/use-cases-of-googles-universal-sentence-encoder-in-production-dd5aaab4fc15)
 
 ## Data Augmentation
+La data augmentation consiste à augmenter artificiellement la quantité de données disponibles pour les modèles de Deep Learning en générant de nouveaux points de données à partir des données existantes, en apportant des modifications mineures ou en utilisant d'autres modèles d'apprentissage automatique. Cette méthode permet d'améliorer la diversité et la qualité des ensembles de données d'entraînement, conduisant ainsi à des modèles plus performants. Cependant, elle peut conserver ou même renforcer les biais des données originales et nécessite des ressources importantes pour garantir la qualité des données synthétiques. (Source: [datascientest.com](https://datascientest.com/data-augmentation-tout-savoir))
+1 Sep 2023 - Jérémy Robert
 
 ## Tokenisation
 D'après la définition d'OC dans le cours Analysez vos données textuelles -  Récupérez et explorez le corpus de textes: *["le terme token désigne généralement un mot et/ou un élément de ponctuation. [Ainsi] La phrase "Hello World!" comprend donc 3 tokens. [...] La tokenisation désigne le découpage en mots des différents documents qui constituent votre corpus"](https://openclassrooms.com/fr/courses/4470541-analysez-vos-donnees-textuelles/4470548-recuperez-et-explorez-le-corpus-de-textes)* par Yannis Chaouche (Mis à jour le 06/09/2022), créé par OpenClassrooms, Leading E-Learning Platform. [lu le 25/04/2024]. 
+La __tokenisation__ est d'après [OpenClassrooms](https://openclassrooms.com/fr/courses/4470541-analysez-vos-donnees-textuelles/4765461-tokenisation-et-pretraitements-de-texte), le processus de division d'un texte en mots ou en sous-chaînes significatives appelées tokens. Cette technique est souvent utilisée comme étape préliminaire pour le traitement du langage naturel, la recherche d'informations, etc.  
 
-## Normalisation des tokens
+## Part-of-speech (POS) tagging
+Le __Part-of-speech tagging (POS tagging)__ est, d'après [Spacy](https://spacy.io/usage/linguistic-features#pos-tagging) le processus de marquage de chaque mot dans un texte avec une étiquette grammaticale correspondant à sa fonction dans la phrase (comme un nom, un verbe, un adjectif, etc.). Cette technique est souvent utilisée pour l'analyse syntaxique et sémantique. 
+
+## Named Entity Recognition (NER)
+- le __Named Entity Recognition (NER)__ ou reconnaissance d'entités nommées est d'après [OpenClassrooms](https://openclassrooms.com/fr/courses/4470541-analysez-vos-donnees-textuelles/4801291-reconnaissance-dentites-nommees-ner), le processus de détection et de classification des entités nommées dans un texte, telles que les personnes, les lieux, les organisations, les dates, etc. Cette technique est souvent utilisée pour l'extraction d'informations à partir de textes. 
+
 ### Stemmatisation
+La __lemmatisation__ est d'après [NLTK](https://www.nltk.org/book/ch03.html), le processus de transformation d'un mot en sa forme canonique (lemme), qui est sa forme de base ou son dictionnaire. Cette technique est souvent utilisée pour normaliser les mots et réduire le nombre de variantes dans le texte.
 
 ### Lemmatisation
+Le __stemming__ est d'après [NLTK](https://www.nltk.org/book/ch03.html), un processus de réduction d'un mot à sa forme racine en supprimant les suffixes et les préfixes. Cette technique est souvent utilisée pour normaliser les mots et réduire le nombre de variantes dans le texte
 
 ## Réduction des dimensions
 
-### ACP
+### Analyse en composantes principales (ou ACP)
+L'Analyse en Composantes Principales (ACP) est une méthode largement utilisée en réduction de dimension qui permet de transformer des variables très corrélées en nouvelles variables décorrélées les unes des autres. Son principe est de résumer l'information contenue dans une large base de données en un certain nombre de variables synthétiques appelées "composantes principales". L'objectif est ensuite de projeter ces données sur l'hyperplan le plus proche afin d'obtenir une représentation simple des données tout en conservant au maximum la variabilité entre les individus. 
+
+Voici comment fonctionne l'Analyse en Composantes Principales :
+- 1. Centrer et réduire les variables pour atténuer l'effet d'échelle, car elles ne sont pas calculées sur la même base.
+- 2. Considérer les données comme une matrice à partir de laquelle des valeurs propres et des vecteurs propres sont calculés. Les vecteurs propres représentent les axes privilégiés selon lesquels une application d'un espace dans lui-même se comporte comme une dilatation.
+- 3. Utiliser les valeurs propres pour déterminer le nombre optimal de composantes principales. Par exemple, si le nombre optimal est 2, les données seront représentées sur deux axes.
+- 4. Réduire la dimension des données en conservant un maximum d'informations. Par exemple, une réduction de dimension de 9 à 2 axes peut conserver près de 70 % des informations.
+- 5. Visualiser l'importance de chaque variable explicative pour chaque axe de représentation à l'aide du cercle des corrélations. Cet outil permet de comprendre quelles variables contribuent le plus à chaque axe.
+En résumé, l'ACP permet de réduire la dimension des données tout en conservant un maximum d'informations, ce qui facilite leur interprétation et leur visualisation. 
+[Source: datascientest.com, "Qu’est-ce que l’Analyse en Composantes principales ?", Raphael Kassel, 13 Janvier 2021]
 
 ### T-SNE
+t-SNE, ou t-distributed Stochastic Neighbor Embedding, est une technique de réduction de dimension utilisée en exploration de données de grandes dimensions. Développée en 2008 par Geoffrey Hinton et Laurens van der Maaten, elle propose une approche différente de l'Analyse en Composantes Principales (ACP). Contrairement à l'ACP qui cherche à maximiser la variance des données dans un sous-espace de dimension réduite, t-SNE vise à représenter les données dans un espace de plus petite dimension tout en préservant les distances entre les points.
+
+Le principe de t-SNE consiste à créer une distribution de probabilité pour représenter les similarités entre voisins dans un espace de grande dimension et dans un espace de plus petite dimension. Il se divise en trois étapes :
+- 1. Calcul des similarités des points dans l'espace initial en grande dimension en utilisant des distributions gaussiennes centrées sur chaque point. Ces similarités sont normalisées pour chaque point en fonction d'une valeur appelée perplexité, qui contrôle la variance des distributions gaussiennes.
+- 2. Création d'un espace de plus petite dimension où les points sont initialement répartis de manière aléatoire. Les similarités des points dans cet espace sont calculées en utilisant une distribution t-Student.
+- 3. Comparaison des similarités des points dans les deux espaces à l'aide de la mesure de divergence de Kullback-Leibler (KL), suivie d'une minimisation de cette divergence par descente de gradient pour obtenir les meilleures coordonnées dans l'espace de dimension réduite.
+Comparativement à l'ACP, t-SNE est capable de regrouper les données proches et d'éloigner les données dissemblables dans l'espace de dimension réduite, comme illustré par une comparaison des résultats obtenus sur le jeu de données MNIST. [Source: datascientest.com, "Comprendre l’algorithme t-SNE en 3 étapes", Raphael Kassel, 24 Mai 2021]
 
 ### UMAP
 
