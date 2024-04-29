@@ -66,8 +66,9 @@ Dans la dernière partie du sujet, il faut utiliser une API pour ramener les don
 Des documents ont été fournis par OpenClassrooms pour gagner du temps dans le traitement du sujet en question. Ils peuvent être retrouvés dans le dossier oc_help. 
 
 ### Matériels et librairies pour recréer ce projet
-Vscode, Python (version 3.9.17), 
+Vscode, Python (version 3.9.17),  conda
 librairies: dans le fichier requirements.txt
+librairies: dans le fichier requirements_eda.txt et dans le fichier requirements_api.txt
 
 ## Référentiel d'évaluation
 #### Prétraiter des données textes pour obtenir un jeu de données exploitable
