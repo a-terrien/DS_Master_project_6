@@ -50,20 +50,19 @@ Les __[hyperparamètres de SURF](https://docs.opencv.org/4.x/d5/df7/classcv_1_1x
 
 Notez que SURF étant breveté, il n'est pas inclus dans certaines distributions d'OpenCV.
 
-### CNN (ou réseau de neurones convolutif) transfer Learning 
+### Convolutional Neural Networks (CNN) 
+Les réseaux de neurones convolutifs (CNN) sont une catégorie spécifique de réseaux de neurones, conçus pour traiter efficacement les données d'images. Contrairement aux méthodes traditionnelles d'apprentissage supervisé, où les features sont extraites manuellement, les CNN sont capables d'apprendre automatiquement les features pertinentes à partir des données d'images. Dans les CNN, les images sont traitées par un processus d'extracteur de features, qui utilise des opérations de filtrage par convolution pour détecter des motifs dans l'image. Ces motifs sont ensuite normalisés et/ou redimensionnés, puis filtrés à nouveau pour extraire des features de plus en plus complexes. Les valeurs résultantes sont concaténées dans un vecteur, qui est ensuite utilisé comme entrée pour la classification. Ils se composent de deux blocs principaux : le premier bloc, qui agit comme un extracteur de features, et le second bloc, qui est responsable de la classification. Le premier bloc utilise des opérations de convolution pour extraire des features des images, tandis que le second bloc effectue des combinaisons linéaires et des fonctions d'activation pour classifier les images.Ils sont largement utilisés dans la classification d'images en raison de leur capacité à apprendre automatiquement les features pertinents. Leur architecture spécifique leur permet d'extraire des features de différentes complexités, ce qui les rend particulièrement adaptés aux problèmes de vision par ordinateur. [Source: Monasse, P., & Nadjahi, K. (Mis à jour le 08/07/2022). Cours: Classez et segmentez des données visuelles. Chapitre: [Qu'est ce qu'un réseau de neurones convolutif (ou CNN)?](https://openclassrooms.com/fr/courses/4470531-classez-et-segmentez-des-donnees-visuelles/5082166-quest-ce-quun-reseau-de-neurones-convolutif-ou-cnn)]
 
 ## API 
 "Une API (application programming interface ou « interface de programmation d’application ») est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.
 
 Les API offrent de nombreuses possibilités, comme la portabilité des données, la mise en place de campagnes de courriels publicitaires, des programmes d’affiliation, l’intégration de fonctionnalités d’un site sur un autre ou l’open data. Elles peuvent être gratuites ou payantes." [Source: CNIL, "Interface de programmation d'application (API)"](https://www.cnil.fr/fr/definition/interface-de-programmation-dapplication-api)
 
-## Classification non-supervisée ou clustering
+### Classification non-supervisée ou clustering
 "L'approche non supervisée consiste à explorer des données sans guide. [... et elle] consiste en l'organisation d'individus en groupes homogènes. En gros, on définit des classes que l'on ne connaît pas à l'avance." 
 
-## Classification supervisée
+### Classification supervisée
 "L'approche supervisée apprend pour prévoir (une variable quantitative, dans le cas d'une régression ; ou une variable qualitative, dans le cas d'une classification).[... et elle] consiste à ranger les individus dans des classes connues."
-
-__Source:__ 
 - [Cours: Réalisez une analyse exploratoire de données. Chapitre: Découvrez les méthodes factorielles et la classification non supervisée](https://openclassrooms.com/fr/courses/4525281-realisez-une-analyse-exploratoire-de-donnees/5291335-decouvrez-les-methodes-factorielles-et-la-classification-non-supervisee). (Mis à jour le 11/12/2023)
 
 ## Approche bag-of-words (aka BOW) ou sac-de-mots 
@@ -79,7 +78,11 @@ __Sources:__
 - Le site web de référence en traitement du langage naturel, "Natural Language Toolkit" (NLTK)
 - Le site web de la bibliothèque Python pour le traitement du langage naturel, "spaCy".
 
-## Comptage simple de mots
+## Bag-of-Words (BoW) ou Sac de mot
+Le modèle de "bag of words" est une méthode simple de représentation de documents en termes de mots, sans considération de l'ordre ou du contexte dans lequel ils apparaissent. Chaque document est représenté par un vecteur de la taille du vocabulaire, où chaque élément du vecteur correspond à la fréquence d'apparition d'un mot spécifique dans le document. Cette approche permet de traiter les documents comme des ensembles non ordonnés de mots.
+Une caractéristique du modèle "bag of words" est son utilisation de la tokenisation pour séparer le texte en mots individuels ou en groupes de mots appelés n-grammes. Les n-grammes, tels que les bigrammes (paires de mots) ou les trigrammes (groupes de trois mots), capturent davantage d'informations sur les relations entre les mots que les mots individuels. Par exemple, en analysant les bigrammes, on peut prendre en compte la probabilité d'apparition d'un mot en fonction des mots précédents.
+Le modèle de "bag of words" est une approche largement utilisée dans le traitement automatique du langage naturel (TALN) pour diverses tâches telles que la classification de texte, l'extraction d'informations et la recherche d'informations.
+[Source: Chaouche, Y.(Mis à jour le 06/09/2022). Représentez votre corpus en "bag of words". [Dans Analysez vos données textuelles.](https://openclassrooms.com/fr/courses/4470541-analysez-vos-donnees-textuelles/4855001-representez-votre-corpus-en-bag-of-words)]
 
 ## Tf-idf (Term-Frequency - Inverse Document Frequency)
 TF-IDF évalue l'importance d'un terme dans un document par rapport à une collection de documents. Il combine la fréquence du terme dans le document avec sa rareté dans le corpus. Les mots communs à tous les documents obtiennent un score faible, tandis que les mots rares dans un document mais fréquents dans d'autres obtiennent un score élevé. Ce score est utilisé dans diverses applications telles que la recherche d'informations et l'extraction de mots-clés.
@@ -130,10 +133,28 @@ __Source:__
 ## Approche word/sentence classique
 
 ### Word2Vec
+Word2vec est un algorithme utilisé pour l'embedding de mots. Il existe deux variantes : CBOW et Skip-Gram. CBOW prédit le mot cible à partir du contexte, tandis que Skip-Gram prédit le contexte à partir du mot cible. Le modèle CBOW utilise une architecture avec une couche d'embedding, une couche GlobalAveragePooling1D et une couche Dense pour prédire le mot cible. La fonction de perte cross-entropy est généralement utilisée pour entraîner le modèle.
+Le word2vec embedding capture les propriétés arithmétiques des mots. Par exemple, la propriété "roi - homme + femme = reine" est explorée pour vérifier si la propriété se propage à d'autres mots comme "woman". Des exemples de mots proches obtenus à partir de propriétés arithmétiques sont fournis.
+Il capture également les propriétés sémantiques des mots. Par exemple, la similarité entre les verbes à l'infinitif et les verbes au passé est explorée pour montrer comment le modèle capture cette relation.
+[Source: Robert, J. (2020, 18 septembre). [Word2vec : NLP & Word Embedding](https://datascientest.com/nlp-word-embedding-word2vec). Data Scientist.]
 
 ### Doc2Vec
+Doc2Vec, également appelé Paragraph Vector, est une technique populaire en traitement automatique du langage naturel (NLP) qui permet de représenter des documents sous forme de vecteurs. Introduite comme une extension de Word2Vec, qui représente les mots sous forme de vecteurs numériques, Doc2Vec est utilisé pour apprendre des embeddings de documents. Cette approche utilise des réseaux neuronaux pour apprendre des représentations distribuées de documents, permettant ainsi la comparaison de documents, la classification, le clustering et l'analyse de similarité.
+
+Il existe deux variantes principales de l'approche Doc2Vec :
+- __Distributed Memory (DM):__ Cette variante considère le contexte dans lequel un document apparaît pour apprendre une représentation vectorielle fixe pour chaque morceau de texte. Elle utilise une architecture de réseau neuronal avec une couche de projection et une couche de sortie pour créer des vecteurs de mots et de documents.
+- __Distributed Bag of Words (DBOW):__ Cette version plus simple de l'algorithme Doc2Vec se concentre sur la distribution des mots dans un texte plutôt que sur leur signification. Elle attribue une représentation vectorielle unique à chaque document sans considérer l'ordre des mots.
+  
+La principale différence entre DM et DBOW réside dans le fait que DM prend en compte à la fois l'ordre des mots et le contexte du document, ce qui le rend plus puissant pour capturer la signification sémantique des documents. En revanche, DBOW est plus rapide à entraîner et utile pour capturer les propriétés distributionnelles des mots dans un corpus.
+Doc2Vec offre plusieurs avantages, notamment la capacité à capturer le sens sémantique des documents, à générer des embeddings de documents pour diverses tâches et à gérer les mots non vus en exploitant leur contexte. Il est également extensible et peut être personnalisé en ajustant divers hyperparamètres.
+[Source: GeeksforGeeks. (11 juillet 2023). [Doc2Vec in NLP](https://www.geeksforgeeks.org/doc2vec-in-nlp/)]
 
 ### Glove 
+GloVe, ou Global Vectors for Word Representation, est un algorithme d'apprentissage non supervisé qui génère des représentations vectorielles ou embeddings de mots. Présenté pour la première fois en 2014 par Richard Socher, Christopher D. Manning et Jeffrey Pennington, GloVe utilise les données de co-occurrence statistique des mots dans un corpus donné pour capturer les relations sémantiques entre les mots.
+
+L'idée fondamentale derrière GloVe est de représenter les mots sous forme de vecteurs dans un espace vectoriel continu, où l'angle et la direction des vecteurs correspondent aux connexions sémantiques entre les mots appropriés. Pour ce faire, GloVe construit une matrice de co-occurrence en utilisant des paires de mots, puis optimise les vecteurs de mots pour minimiser la différence entre l'information mutuelle ponctuelle des mots correspondants et le produit scalaire des vecteurs.
+
+Les embeddings GloVe sont des options populaires pour représenter les mots dans les données textuelles et ont trouvé des applications dans diverses tâches de traitement automatique du langage naturel (NLP). Ils peuvent être utilisés pour la classification de texte, la reconnaissance d'entités nommées (NER), la traduction automatique, les systèmes de question-réponse, la similarité et le regroupement de documents, ainsi que dans les tâches d'analogie de mots et de recherche sémantique. [Source: GeeksforGeeks. (03 janvier 2024). [Pre-trained Word embedding using Glove in NLP models](https://www.geeksforgeeks.org/pre-trained-word-embedding-using-glove-in-nlp-models/?ref=header_search)]
 
 ### FastText
 FastText est une bibliothèque open source développée par Facebook AI Research (FAIR) pour apprendre l'intégration de mots et la classification de mots. Cette bibliothèque permet de créer des algorithmes d'apprentissage supervisé ou non supervisé pour obtenir des représentations vectorielles de mots. Elle prend en charge les modèles CBOW et Skip-gram. FastText est utilisé pour trouver des similitudes sémantiques et pour la classification de texte, comme le filtrage du spam. Il peut former de grands ensembles de données en quelques minutes, offrant une alternative rapide aux modèles basés sur des réseaux neuronaux profonds. Les représentations de mots générées par FastText contiennent des informations sur les sous-mots, ce qui aide le modèle à établir une similarité sémantique entre les mots. FastText utilise également la technique des N-Gram pour entraîner le modèle, ce qui lui permet de capturer la signification des suffixes/préfixes pour les mots donnés dans le corpus. Il peut être utilisé sur des langues morphologiquement riches comme l'espagnol, le français et l'allemand. [Source: GeeksforGeeks, "Fonctionnement et mise en œuvre de FastText", Dernière mise à jour : 26 novembre 2020]
@@ -166,8 +187,22 @@ La __lemmatisation__ est d'après [NLTK](https://www.nltk.org/book/ch03.html), l
 Le __stemming__ est d'après [NLTK](https://www.nltk.org/book/ch03.html), un processus de réduction d'un mot à sa forme racine en supprimant les suffixes et les préfixes. Cette technique est souvent utilisée pour normaliser les mots et réduire le nombre de variantes dans le texte
 
 ## Réduction des dimensions
+La réduction de dimension est une technique statistique et basée sur l'apprentissage automatique dans laquelle nous essayons de réduire le nombre de caractéristiques dans notre ensemble de données pour obtenir un ensemble de données avec un nombre optimal de dimensions. L'objectif est d'éviter le surajustement et la malédiction de la dimensionnalité, où un grand nombre de caractéristiques peut nuire aux performances des modèles.
+Une méthode courante de réduction de dimension est l'extraction de caractéristiques, dans laquelle nous réduisons le nombre de dimensions en cartographiant un espace de caractéristiques de dimension supérieure vers un espace de caractéristiques de dimension inférieure. L'une des techniques les plus populaires d'extraction de caractéristiques est l'Analyse en Composantes Principales (PCA).
+[Source: GeeksforGeeks. (18 juillet 2022). [Reduce Data Dimensionality using PCA – Python](https://www.geeksforgeeks.org/reduce-data-dimentionality-using-pca-python/?ref=header_search)]
 
-### Analyse en composantes principales (ou ACP)
+### Latent Dirichlet Allocation (LDA)
+L'Allocation de Dirichlet Latente (LDA) est un modèle statistique pour découvrir des sujets abstraits, également appelé modélisation de sujets. Il permet la classification non supervisée des documents, similaire à la mise en grappes sur des données numériques, pour trouver des groupes naturels d'éléments (sujets) même lorsque l'on n'est pas sûr de ce que l'on recherche.
+L'objectif de LDA est de trouver les sujets auxquels appartient un document, en se basant sur les mots qu'il contient. Il aide à organiser, comprendre, rechercher et résumer automatiquement de grands archives électroniques.
+LDA est largement utilisé en traitement du langage naturel, notamment dans la classification de textes, la résumé de texte et la modélisation de sujets.
+
+Kulshrestha, R. (Jul 19, 2019). [A Beginner’s Guide to Latent Dirichlet Allocation(LDA)](https://towardsdatascience.com/latent-dirichlet-allocation-lda-9d1cd064ffa2). Towards Data Science
+
+### Linear Discriminant Analysis (LDA)
+L'Analyse Discriminante Linéaire (LDA), également connue sous le nom d'Analyse Discriminante Normale ou Analyse de Fonction Discriminante, est une technique de réduction de dimensionnalité principalement utilisée dans les problèmes de classification supervisée. Elle facilite la modélisation des distinctions entre les groupes, séparant efficacement deux classes ou plus. LDA opère en projetant des caractéristiques d'un espace de dimension supérieure dans un espace de dimension inférieure. En apprentissage automatique, LDA sert d'algorithme d'apprentissage supervisé spécifiquement conçu pour les tâches de classification, visant à identifier une combinaison linéaire de caractéristiques qui sépare de manière optimale les classes au sein d'un ensemble de données.
+[Linear Discriminant Analysis in Machine Learning](https://www.geeksforgeeks.org/ml-linear-discriminant-analysis/). (Last Updated: 20 Mar, 2024). 
+
+### Principal Components Analysis (ou PCA)
 L'Analyse en Composantes Principales (ACP) est une méthode largement utilisée en réduction de dimension qui permet de transformer des variables très corrélées en nouvelles variables décorrélées les unes des autres. Son principe est de résumer l'information contenue dans une large base de données en un certain nombre de variables synthétiques appelées "composantes principales". L'objectif est ensuite de projeter ces données sur l'hyperplan le plus proche afin d'obtenir une représentation simple des données tout en conservant au maximum la variabilité entre les individus. 
 
 Voici comment fonctionne l'Analyse en Composantes Principales :
@@ -188,6 +223,7 @@ Le principe de t-SNE consiste à créer une distribution de probabilité pour re
 - 3. Comparaison des similarités des points dans les deux espaces à l'aide de la mesure de divergence de Kullback-Leibler (KL), suivie d'une minimisation de cette divergence par descente de gradient pour obtenir les meilleures coordonnées dans l'espace de dimension réduite.
 Comparativement à l'ACP, t-SNE est capable de regrouper les données proches et d'éloigner les données dissemblables dans l'espace de dimension réduite, comme illustré par une comparaison des résultats obtenus sur le jeu de données MNIST. [Source: datascientest.com, "Comprendre l’algorithme t-SNE en 3 étapes", Raphael Kassel, 24 Mai 2021]
 
-### UMAP
+### Uniform Manifold Approximation and Projection (UMAP)
+L'approximation et projection uniforme de variétés (UMAP) est une autre technique de réduction de dimensionnalité et de visualisation. Elle simplifie les données complexes et préserve la structure locale ainsi que les relations entre les points de données. UMAP utilise l'apprentissage de variétés pour comprendre la structure sous-jacente ou la forme des données. Il se concentre sur la capture de relations complexes et non linéaires dans les données qui peuvent ne pas être capturées par PCA ou t-SNE. UMAP est scalable et peut gérer efficacement de grands ensembles de données, ce qui le rend adapté à la visualisation et à l'exploration.
 
-### LDA
+Sung Mo Park. (Publié le 15 juil. 2023) [Easy explanation of the dimension reduction (PCA, t-SNE, and UMAP)](https://www.linkedin.com/pulse/easy-explanation-dimension-reduction-pca-t-sne-umap-sung-mo-park#:~:text=%2D%20PCA%20provides%20a%20global%20view,is%20specifically%20designed%20for%20scalability).
