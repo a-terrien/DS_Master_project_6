@@ -53,6 +53,9 @@ Notez que SURF étant breveté, il n'est pas inclus dans certaines distributions
 ### CNN (ou réseau de neurones convolutif) transfer Learning 
 
 ## API 
+"Une API (application programming interface ou « interface de programmation d’application ») est une interface logicielle qui permet de « connecter » un logiciel ou un service à un autre logiciel ou service afin d’échanger des données et des fonctionnalités.
+
+Les API offrent de nombreuses possibilités, comme la portabilité des données, la mise en place de campagnes de courriels publicitaires, des programmes d’affiliation, l’intégration de fonctionnalités d’un site sur un autre ou l’open data. Elles peuvent être gratuites ou payantes." [Source: CNIL, "Interface de programmation d'application (API)"](https://www.cnil.fr/fr/definition/interface-de-programmation-dapplication-api)
 
 ## Classification non-supervisée ou clustering
 "L'approche non supervisée consiste à explorer des données sans guide. [... et elle] consiste en l'organisation d'individus en groupes homogènes. En gros, on définit des classes que l'on ne connaît pas à l'avance." 
@@ -60,7 +63,7 @@ Notez que SURF étant breveté, il n'est pas inclus dans certaines distributions
 ## Classification supervisée
 "L'approche supervisée apprend pour prévoir (une variable quantitative, dans le cas d'une régression ; ou une variable qualitative, dans le cas d'une classification).[... et elle] consiste à ranger les individus dans des classes connues."
 
-Source: 
+__Source:__ 
 - [Cours: Réalisez une analyse exploratoire de données. Chapitre: Découvrez les méthodes factorielles et la classification non supervisée](https://openclassrooms.com/fr/courses/4525281-realisez-une-analyse-exploratoire-de-donnees/5291335-decouvrez-les-methodes-factorielles-et-la-classification-non-supervisee). (Mis à jour le 11/12/2023)
 
 ## Approche bag-of-words (aka BOW) ou sac-de-mots 
@@ -79,6 +82,50 @@ __Sources:__
 ## Comptage simple de mots
 
 ## Tf-idf (Term-Frequency - Inverse Document Frequency)
+TF-IDF évalue l'importance d'un terme dans un document par rapport à une collection de documents. Il combine la fréquence du terme dans le document avec sa rareté dans le corpus. Les mots communs à tous les documents obtiennent un score faible, tandis que les mots rares dans un document mais fréquents dans d'autres obtiennent un score élevé. Ce score est utilisé dans diverses applications telles que la recherche d'informations et l'extraction de mots-clés.
+
+__Fréquence des termes:__ La fréquence des termes (TF) d'un terme ou mot est le nombre de fois où le terme apparaît dans un document par rapport au nombre total de mots dans le document.
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>T</mi>
+  <mi>F</mi>
+  <mo>=</mo>
+  <mfrac>
+    <mtext>number of times the term appears in the document</mtext>
+    <mtext>total number of terms in the document</mtext>
+  </mfrac>
+</math>
+
+__Fréquence inverse des documents:__ La fréquence inverse des documents (IDF) d'un terme reflète la proportion de documents dans le corpus qui contiennent le terme. Les mots uniques à un petit pourcentage de documents (par exemple, des termes de jargon technique) reçoivent des valeurs d'importance plus élevées que les mots communs à tous les documents (par exemple, a, le, et).
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mi>I</mi>
+  <mi>D</mi>
+  <mi>F</mi>
+  <mo>=</mo>
+  <mi>l</mi>
+  <mi>o</mi>
+  <mi>g</mi>
+  <mo stretchy="false">(</mo>
+  <mfrac>
+    <mtext>number of the documents in the corpus</mtext>
+    <mtext>number of documents in the corpus contain the term</mtext>
+  </mfrac>
+  <mo stretchy="false">)</mo>
+</math>
+Le TF-IDF d'un terme est calculé en multipliant les scores TF et IDF.
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mtext mathvariant="italic">TF-IDF</mtext>
+  <mo>=</mo>
+  <mi>T</mi>
+  <mi>F</mi>
+  <mo>&#x2217;</mo>
+  <mi>I</mi>
+  <mi>D</mi>
+  <mi>F</mi>
+</math>
+
+__Source:__
+- Stecanella, B. (2019, May 10). [Understanding TF-IDF: A Simple Introduction](https://monkeylearn.com/blog/what-is-tf-idf/) 
+- Karabiber, F. (Ph.D. in Computer Engineering, Data Scientist). [TF-IDF — Term Frequency-Inverse Document Frequency](https://www.learndatasci.com/glossary/tf-idf-term-frequency-inverse-document-frequency/#:~:text=Term%20Frequency%20%2D%20Inverse%20Document%20Frequency%20(TF%2DIDF)%20is,%2C%20relative%20to%20a%20corpus).
 
 ## Approche word/sentence classique
 
@@ -144,6 +191,3 @@ Comparativement à l'ACP, t-SNE est capable de regrouper les données proches et
 ### UMAP
 
 ### LDA
-
-## RGPD
-
