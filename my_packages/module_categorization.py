@@ -12,7 +12,6 @@ df['CATEGORY'] = df['product_category_tree'].map(lambda x: x.split("[\"")[1].spl
 # Liste des catégories
 le = LabelEncoder()
 cat_list = list(np.unique(df.CATEGORY))
-print("catégories : ", cat_list)
 
 # Création du label qui sera utilisé lors de la comparaison ARI
 true_label = le.fit_transform(df['CATEGORY'])
@@ -28,7 +27,7 @@ palette = {'Baby Care': 'violet',
            'Home Furnishing': 'orange', 
            'Kitchen & Dining': 'red', 
            'Watches': 'brown'}
-           
+          
 my_colors = ['violet', 'blue',  'gray', 'green', 'orange', 'red','brown']
 my_cmap = ListedColormap(my_colors)
 
