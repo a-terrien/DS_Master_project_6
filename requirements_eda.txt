@@ -6,6 +6,7 @@ seaborn==0.12.2
 wordcloud==1.9.2
 opencv-python==4.8.0.76
 scipy==1.11.2
-scikit-learn==1.4.2
+#scikit-learn==1.4.2
+scikit-learn
 nbformat==5.9.2
 nltk==3.8.1

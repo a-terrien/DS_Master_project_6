@@ -13,7 +13,7 @@ import unicodedata
 
 # Les mots à supprimer
 unwanted_words = set(['', 'products', 'product', 'free', 'rs', 'buy', 'delivery', 'shipping', 'cash', 'cm', 
-                      'flipkart', 'com', 'flipkartcom', 'online', 'price', 'sales', 'features', 'Genuine', 'india',
+                      'flipkart', 'com', 'flipkartcom', 'online', 'price', 'sales', 'features', 'genuine', 'india',
                       'specifications', 'discounts', 'prices', 'key', 'great'])
 flipkart_stopword = list(stop_words)+list(unwanted_words)
 
