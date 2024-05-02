@@ -2,10 +2,9 @@ import numpy as np
 import pandas as pd
 from matplotlib.colors import ListedColormap, BoundaryNorm
 from sklearn.preprocessing import LabelEncoder
-from variables import PATH_input
 
 # Création des catégories
-
+PATH_input = '/Users/audreyterrien/Documents/github_repositories/DS_Master_project_6/input/'
 df = pd.read_csv(PATH_input+'flipkart_com-ecommerce_sample_1050.csv')    
 df['CATEGORY'] = df['product_category_tree'].map(lambda x: x.split("[\"")[1].split(" >>", 1)[0])
 
