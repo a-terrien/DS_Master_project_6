@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns 
 from sklearn.preprocessing import LabelEncoder 
-from module_categorization import palette, my_cmap, norm, cat_list
+from .module_categorization import palette, my_cmap, norm, cat_list
 from sklearn.metrics import (homogeneity_score, v_measure_score, completeness_score, 
                              confusion_matrix, adjusted_rand_score, classification_report)
 # Liste des catégories
