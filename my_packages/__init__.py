@@ -2,6 +2,7 @@
 from .module_eda import *
 from .module_preprocess import *
 from .module_visual_report import *
+from .module_text_eda import *
 
 # Déclaration des constantes globales
 PATH_input = '/Users/audreyterrien/Documents/github_repositories/DS_Master_project_6/input/'

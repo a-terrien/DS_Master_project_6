@@ -315,12 +315,12 @@ def get_unique_categories(df, duplicates):
             unique_categories.add(cat2)
     return unique_categories
 
-
-def find_duplicate_images(directory):
     """
+def find_duplicate_images(directory):
+    ""
     This function finds duplicate images in a given directory by comparing their hashes.
     It returns a list of tuples, where each tuple contains the paths of the duplicate images.
-    """
+    ""
     # Dictionary to store the hashes of the images
     hashes = {}
     # List to store the duplicate images
@@ -339,4 +339,5 @@ def find_duplicate_images(directory):
             else:
                 # If the hash is not in the dictionary, add it with the image path
                 hashes[image_hash] = image_path
-    return duplicates
+    return duplicates    
+    """
