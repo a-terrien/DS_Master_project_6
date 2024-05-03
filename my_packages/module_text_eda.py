@@ -11,11 +11,23 @@ from re import sub
 from string import punctuation
 import unicodedata
 
+# Télécharger la liste de mots vides pour la langue anglaise
+nltk.download('stopwords')
+
+# Importer la liste de mots vides pour la langue anglaise
+stop_word = set(nltk.corpus.stopwords.words('english'))
+                
 # Les mots à supprimer
 unwanted_words = set(['', 'products', 'product', 'free', 'rs', 'buy', 'delivery', 'shipping', 'cash', 'cm', 
                       'flipkart', 'com', 'flipkartcom', 'online', 'price', 'sales', 'features', 'genuine', 'india',
                       'specifications', 'discounts', 'prices', 'key', 'great'])
-flipkart_stopword = list(stop_words)+list(unwanted_words)
+#flipkart_stopword = list(stop_words)+list(unwanted_words)
+# Votre liste personnalisée de mots vides
+#flipkart_stopword = {'word1', 'word2', 'word3'}  # Ajoutez vos propres mots vides ici
+
+# Assurez-vous que tous les mots de flipkart_stopword sont également dans stop_words
+flipkart_stopword = set.intersection(unwanted_words)
+flipkart_stopword = list(flipkart_stopword)
 
 # Fonctions de nettoyage et de normalisation du texte // version NLTK 
 
