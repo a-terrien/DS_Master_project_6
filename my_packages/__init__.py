@@ -5,6 +5,7 @@ from .module_preprocess import *
 from .module_text_eda import *
 from .module_categorization import *
 from .module_visual_results import *
+from .variables import *
 
 # Déclaration des constantes globales
 #PATH_input = '/Users/audreyterrien/Documents/github_repositories/DS_Master_project_6/input/'
