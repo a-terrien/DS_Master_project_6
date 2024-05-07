@@ -165,4 +165,33 @@ conda create --name ocds6 python=3.9.17
 conda activate ocds6
 ```
 
+#### Installation de homebrew
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+si vous l'avez déjà (ou si vous ne savez pas si vous l'avez déjà installé), tapez `brew -v` dans le terminal
+Assurez-vous que vous avez bien les droits administrateurs (votre mdp sera demandé pour utiliser sudo)
+
+#### Installation de Miniconda
+```
+brew install --cask miniconda
+```
+Si vous l'avez déjà (ou si vous ne savez pas si vous l'avez déjà installé), tapez `conda --version` dans le terminal. Dans le cas où vous l'avez déjà installer, regardez si vous avez déjà un environnement virtuel que vous allez réutilisez, sinon passez cette étape:
+```
+conda create --name ocds6 python=3.9.17
+#!/bin/bash --login
+source ~/.bashrc
+conda init --all
+# Tuer le terminal et réouvrir un nouveau pour pouvoir utiliser le nouvel environnement virtuel
+conda env list # pour le retrouver
+conda activate ocds6
+
+ ```
+
+ Python Environment Manager
+ 
+
+
+
+
 
