@@ -6,6 +6,7 @@ import seaborn as sns
 from IPython.display import display
 from sklearn.metrics import homogeneity_score, v_measure_score, completeness_score
 from sklearn.metrics import confusion_matrix, adjusted_rand_score, classification_report
+
 PATH_results = '/Users/audreyterrien/Documents/github_repositories/projet_6/output/model_results/'
 
 # Modification des labels prédits pour les rapprocher le plus possible des vrais labels
