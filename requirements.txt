@@ -16,3 +16,6 @@ Pillow==10.0.0
 #tensorflow==
 
 nltk==3.8.1
+
+# Pour travailler avec les variables d'environnement 
+python-dotenv==1.0.1
